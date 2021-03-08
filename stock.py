@@ -2,7 +2,7 @@ import numpy
 import yfinance
 
 
-def ticker_analysis(ticker):
+def ticker_analysis(ticker, file):
     data = yfinance.download(ticker, period="5d", interval="1h", prepost=True)
 
     short_sma = data.Close.rolling(window=10).mean()
@@ -17,22 +17,22 @@ def ticker_analysis(ticker):
 
     acceleration = (macd[macd.size - 1] - macd[macd.size - 2]) - (macd[macd.size - 2] - macd[macd.size - 3])
 
-    print('Ticker:')
-    print(ticker)
+    print('Ticker:', file=file)
+    print(ticker, file=file)
 
-    print('Price:')
-    print(data.Close[data.Close.size - 1])
+    print('Price:', file=file)
+    print(data.Close[data.Close.size - 1], file=file)
 
-    print('Macd:')
-    print(macd[macd.size - 1])
+    print('Macd:', file=file)
+    print(macd[macd.size - 1], file=file)
 
-    print('Macd Angle:')
-    print(macd_angle)
+    print('Macd Angle:', file=file)
+    print(macd_angle, file=file)
 
-    print('Velocity:')
-    print(velocity)
+    print('Velocity:', file=file)
+    print(velocity, file=file)
 
-    print('Acceleration')
-    print(acceleration)
+    print('Acceleration', file=file)
+    print(acceleration, file=file)
 
-    print('')
+    print('', file=file)
