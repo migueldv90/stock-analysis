@@ -21,13 +21,13 @@ def ticker_analysis(ticker, file):
     print('Ticker:', file=file)
     print(ticker, file=file)
 
-    print('Ema Percent:', file=file)
+    print('Ema 10 Percent:', file=file)
     print(ema_10_percent, file=file)
 
     print('Macd Angle:', file=file)
     print(macd_angle, file=file)
 
-    print('Macd Acceleration', file=file)
+    print('MacdAcceleration', file=file)
     print(macd_acceleration, file=file)
 
     print('', file=file)
