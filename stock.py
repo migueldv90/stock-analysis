@@ -6,8 +6,9 @@ def ticker_analysis(ticker, file):
     data = yfinance.download(ticker, period="5d", interval="30m", prepost=True)
 
     short_sma = data.Close.rolling(window=10).mean()
-    short_ema = data.Close.ewm(span=10, adjust=False).mean()
     long_sma = data.Close.rolling(window=20).mean()
+
+    short_ema = data.Close.ewm(span=10, adjust=False).mean()
     long_ema = data.Close.ewm(span=20, adjust=False).mean()
 
     macd = short_ema - long_ema
