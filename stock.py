@@ -3,7 +3,7 @@ import yfinance
 
 
 def ticker_analysis(ticker, file):
-    data = yfinance.download(ticker, period="5d", interval="1h", prepost=True)
+    data = yfinance.download(ticker, period="5d", interval="30m", prepost=True)
 
     short_sma = data.Close.rolling(window=10).mean()
     short_ema = data.Close.ewm(span=10, adjust=False).mean()
@@ -21,6 +21,12 @@ def ticker_analysis(ticker, file):
 
     print('Price:', file=file)
     print(data.Close[data.Close.size - 1], file=file)
+
+    print('Sma:', file=file)
+    print(short_sma[short_sma.size - 1], file=file)
+
+    print('Ema:', file=file)
+    print(short_ema[short_ema.size - 1], file=file)
 
     print('Macd:', file=file)
     print(macd[macd.size - 1], file=file)
