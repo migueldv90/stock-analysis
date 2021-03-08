@@ -3,7 +3,7 @@ from stock import ticker_analysis
 
 
 def main():
-    threading.Timer(5, main).start()
+    # threading.Timer(5, main).start()
 
     file = open('tickers.txt', 'w')
     for ticker in tickers:
