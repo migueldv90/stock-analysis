@@ -15,7 +15,7 @@ tickers = ['dkng', 'penn', 'flux', 'gevo', 'mu', 'jmia', 'tigr', 'nndm', 'dm', '
 tickers = ['tan', 'icln', 'arkg', 'arkq', 'arkf', 'arkw', 'arkk', 'qqq', 'spyg', 'spy']
 tickers = ['btc-usd', 'eth-usd']
 
-time_frame = '1d'
+time_frame = '30m'
 
 
 main()
