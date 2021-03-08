@@ -11,5 +11,6 @@ def main():
     file.close()
 
 
-tickers = ['flux', 'gevo', 'mu', 'jmia', 'tigr', 'nndm', 'dm', 'csiq', 'lazr', 'idex', 'nio', 'riot', 'mara', 'mmm']
+tickers = ['dkng', 'penn', 'flux', 'gevo', 'mu', 'jmia', 'tigr', 'nndm', 'dm', 'csiq', 'lazr', 'idex', 'nio',
+           'riot', 'mara', 'mmm', 'tan', 'icln', 'arkg', 'arkq', 'arkf', 'arkw', 'arkk', 'qqq', 'spyg', 'spy']
 main()
