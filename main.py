@@ -1,8 +1,10 @@
+import datetime
 import threading
 from stock import ticker_analysis
 
 
 def main():
+    print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
     # threading.Timer(5, main).start()
 
     file = open('tickers.txt', 'w')
