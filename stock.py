@@ -8,12 +8,12 @@ def ticker_analysis(ticker, file):
     short_sma = data.Close.rolling(window=10).mean()
     long_sma = data.Close.rolling(window=20).mean()
 
-    short_ema = data.Close.ewm(span=10, adjust=False).mean()
-    long_ema = data.Close.ewm(span=20, adjust=False).mean()
+    ema_10 = data.Close.ewm(span=10, adjust=False).mean()
+    ema_20 = data.Close.ewm(span=20, adjust=False).mean()
 
-    ema_10_percent = ((short_ema[short_ema.size - 1] - short_ema[short_ema.size - 2]) / short_ema[short_ema.size - 1]) * 100
+    ema_10_percent = ((ema_10[ema_10.size - 1] - ema_10[ema_10.size - 2]) / ema_10[ema_10.size - 1]) * 100
 
-    macd = short_ema - long_ema
+    macd = ema_10 - ema_20
 
     macd_angle = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
     macd_acceleration = (macd[macd.size - 1] - macd[macd.size - 2]) - (macd[macd.size - 2] - macd[macd.size - 1])
