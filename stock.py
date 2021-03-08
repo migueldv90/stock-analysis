@@ -11,7 +11,6 @@ def ticker_analysis(ticker, file):
     long_ema = data.Close.ewm(span=20, adjust=False).mean()
 
     macd = short_ema - long_ema
-    signal = macd.ewm(span=15, adjust=False).mean()
 
     macd_angle = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
     macd_velocity = macd[macd.size - 1] - macd[macd.size - 2]
