@@ -4,7 +4,7 @@ import yfinance
 ticker = 'btc-usd'
 
 
-data = yfinance.download(ticker, period="1d", interval="1h")
+data = yfinance.download(ticker, period="3d", interval="1h")
 
 
 short_sma = data.Close.rolling(window=10).mean()
@@ -16,5 +16,12 @@ macd = short_ema - long_ema
 signal = macd.ewm(span=15, adjust=False).mean()
 
 
-print(short_ema[short_ema.size - 2] - short_ema[short_ema.size - 3])
-print(macd[macd.size - 2] - macd[macd.size - 3])
+print('Ticker:')
+print(ticker)
+
+print('Price:')
+print(data.Close[data.Close.size - 1])
+
+
+# print(short_ema[short_ema.size - 2] - short_ema[short_ema.size - 3])
+# print(macd[macd.size - 2] - macd[macd.size - 3])
