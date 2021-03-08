@@ -13,9 +13,8 @@ def ticker_analysis(ticker, file):
     signal = macd.ewm(span=15, adjust=False).mean()
 
     macd_angle = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
-    velocity = macd[macd.size - 1] - macd[macd.size - 2]
-
-    acceleration = (macd[macd.size - 1] - macd[macd.size - 2]) - (macd[macd.size - 2] - macd[macd.size - 3])
+    macd_velocity = macd[macd.size - 1] - macd[macd.size - 2]
+    macd_acceleration = (macd[macd.size - 1] - macd[macd.size - 2]) - (macd[macd.size - 2] - macd[macd.size - 1])
 
     print('Ticker:', file=file)
     print(ticker, file=file)
@@ -29,10 +28,10 @@ def ticker_analysis(ticker, file):
     print('Macd Angle:', file=file)
     print(macd_angle, file=file)
 
-    print('Velocity:', file=file)
-    print(velocity, file=file)
+    print('Macd Velocity:', file=file)
+    print(macd_velocity, file=file)
 
-    print('Acceleration', file=file)
-    print(acceleration, file=file)
+    print('Macd Acceleration', file=file)
+    print(macd_acceleration, file=file)
 
     print('', file=file)
