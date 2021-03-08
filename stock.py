@@ -11,7 +11,8 @@ def ticker_analysis(ticker, time_frame, file):
     ema_10 = data.Close.ewm(span=10, adjust=False).mean()
     ema_20 = data.Close.ewm(span=20, adjust=False).mean()
 
-    ema_10_percent = ((ema_10[ema_10.size - 1] - ema_10[ema_10.size - 2]) / ema_10[ema_10.size - 1]) * 100
+    ema_10_change = ema_10[ema_10.size - 1] - ema_10[ema_10.size - 2]
+    ema_10_change_percent = (ema_10_change / ema_10[ema_10.size - 1]) * 100
 
     macd = ema_10 - ema_20
 
@@ -24,8 +25,11 @@ def ticker_analysis(ticker, time_frame, file):
     print('Ticker: ' + status, file=file)
     print(ticker + ' - ' + time_frame, file=file)
 
-    print('Ema 10 Percent:', file=file)
-    print(ema_10_percent, file=file)
+    print('Ema 10 Change:', file=file)
+    print(ema_10_change, file=file)
+
+    print('Ema 10 Change Percent:', file=file)
+    print(ema_10_change_percent, file=file)
 
     print('Macd Angle:', file=file)
     print(macd_angle, file=file)
