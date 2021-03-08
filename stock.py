@@ -1,11 +1,10 @@
-from datetime import datetime, timedelta
-import yfinance as yf
+import yfinance
 
 
 ticker = 'btc-usd'
 
 
-data = yf.download(ticker, period="1d", interval="1h")
+data = yfinance.download(ticker, period="1d", interval="1h")
 
 
 short_sma = data.Close.rolling(window=10).mean()
