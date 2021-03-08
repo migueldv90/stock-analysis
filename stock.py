@@ -11,13 +11,13 @@ def ticker_analysis(ticker, time_frame, file):
     ema_10 = data.Close.ewm(span=10, adjust=False).mean()
     ema_20 = data.Close.ewm(span=20, adjust=False).mean()
 
-    ema_10_change = ema_10[ema_10.size - 1] - ema_10[ema_10.size - 2]
-    ema_10_change_percent = (ema_10_change / ema_10[ema_10.size - 1]) * 100
+    ema_10_change = ema_10[ema_10.size - 2] - ema_10[ema_10.size - 3]
+    ema_10_change_percent = (ema_10_change / ema_10[ema_10.size - 2]) * 100
 
     macd = ema_10 - ema_20
 
-    macd_angle = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
-    macd_acceleration = (macd[macd.size - 1] - macd[macd.size - 2]) - (macd[macd.size - 2] - macd[macd.size - 1])
+    macd_angle = numpy.rad2deg(numpy.arctan2(macd[macd.size - 2] - macd[macd.size - 3], 1))
+    macd_acceleration = (macd[macd.size - 2] - macd[macd.size - 3]) - (macd[macd.size - 3] - macd[macd.size - 2])
 
     status = 'Buy' if (macd_angle > 0 and macd_acceleration > 0) else 'Sell' if (macd_angle < 0 and macd_acceleration < 0) else 'Hold'
 
