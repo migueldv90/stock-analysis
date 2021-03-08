@@ -22,6 +22,8 @@ print(ticker)
 print('Price:')
 print(data.Close[data.Close.size - 1])
 
+print('Macd:')
+print(macd[macd.size - 1])
 
-# print(short_ema[short_ema.size - 2] - short_ema[short_ema.size - 3])
-# print(macd[macd.size - 2] - macd[macd.size - 3])
+print('Velocity:')
+print(macd[macd.size - 1] - macd[macd.size - 2])
