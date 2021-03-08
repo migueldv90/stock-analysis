@@ -7,6 +7,7 @@ def ticker_analysis(ticker, file):
 
     short_sma = data.Close.rolling(window=10).mean()
     short_ema = data.Close.ewm(span=10, adjust=False).mean()
+    long_sma = data.Close.rolling(window=20).mean()
     long_ema = data.Close.ewm(span=20, adjust=False).mean()
 
     macd = short_ema - long_ema
@@ -22,8 +23,11 @@ def ticker_analysis(ticker, file):
     print('Price:', file=file)
     print(data.Close[data.Close.size - 1], file=file)
 
-    print('Sma:', file=file)
+    print('Sma 10:', file=file)
     print(short_sma[short_sma.size - 1], file=file)
+
+    print('Sma 20:', file=file)
+    print(long_sma[long_sma.size - 1], file=file)
 
     print('Ema:', file=file)
     print(short_ema[short_ema.size - 1], file=file)
