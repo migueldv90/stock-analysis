@@ -19,8 +19,7 @@ def ticker_analysis(ticker, time_frame, file):
     macd_angle = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
     macd_acceleration = (macd[macd.size - 1] - macd[macd.size - 2]) - (macd[macd.size - 2] - macd[macd.size - 1])
 
-    status = 'Buy' if (macd_angle > 0 and macd_acceleration > 0) < 13 else 'Sell' if (
-        macd_angle < 0 and macd_acceleration < 0) < 18 else 'Hold'
+    status = 'Buy' if (macd_angle > 0 and macd_acceleration > 0) else 'Sell' if (macd_angle < 0 and macd_acceleration < 0) else 'Hold'
 
     print('Ticker: ' + status, file=file)
     print(ticker + ' - ' + time_frame, file=file)
