@@ -1,5 +1,8 @@
 from stock import ticker_analysis
 
 
-ticker = 'lndc'
-ticker_analysis(ticker)
+tickers = ['lndc', 'nio']
+
+
+for ticker in tickers:
+    ticker_analysis(ticker)

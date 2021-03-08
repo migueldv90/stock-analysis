@@ -29,3 +29,5 @@ def ticker_analysis(ticker):
 
     print('Velocity:')
     print(velocity)
+
+    print('')
