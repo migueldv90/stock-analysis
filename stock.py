@@ -2,8 +2,8 @@ import numpy
 import yfinance
 
 
-def ticker_analysis(ticker, file):
-    data = yfinance.download(ticker, period="5d", interval="30m", prepost=True)
+def ticker_analysis(ticker, time_frame, file):
+    data = yfinance.download(ticker, period="5d", interval=time_frame, prepost=True)
 
     sma_10 = data.Close.rolling(window=10).mean()
     sma_20 = data.Close.rolling(window=20).mean()
@@ -19,7 +19,7 @@ def ticker_analysis(ticker, file):
     macd_acceleration = (macd[macd.size - 1] - macd[macd.size - 2]) - (macd[macd.size - 2] - macd[macd.size - 1])
 
     print('Ticker:', file=file)
-    print(ticker, file=file)
+    print(ticker + ' - ' + time_frame, file=file)
 
     print('Ema 10 Percent:', file=file)
     print(ema_10_percent, file=file)
