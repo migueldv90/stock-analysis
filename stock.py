@@ -11,40 +11,21 @@ def ticker_analysis(ticker, file):
     short_ema = data.Close.ewm(span=10, adjust=False).mean()
     long_ema = data.Close.ewm(span=20, adjust=False).mean()
 
-    short_ema_change = ((short_ema[short_ema.size - 1] - short_ema[short_ema.size - 2]) / short_ema[short_ema.size - 1]) * 100
+    short_ema_percent = ((short_ema[short_ema.size - 1] - short_ema[short_ema.size - 2]) / short_ema[short_ema.size - 1]) * 100
 
     macd = short_ema - long_ema
 
     macd_angle = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
-    macd_velocity = macd[macd.size - 1] - macd[macd.size - 2]
     macd_acceleration = (macd[macd.size - 1] - macd[macd.size - 2]) - (macd[macd.size - 2] - macd[macd.size - 1])
 
     print('Ticker:', file=file)
     print(ticker, file=file)
 
-    print('Price:', file=file)
-    print(data.Close[data.Close.size - 1], file=file)
-
-    print('Sma 10:', file=file)
-    print(short_sma[short_sma.size - 1], file=file)
-
-    print('Sma 20:', file=file)
-    print(long_sma[long_sma.size - 1], file=file)
-
-    print('Ema:', file=file)
-    print(short_ema[short_ema.size - 1], file=file)
-
-    print('Ema Change:', file=file)
-    print(short_ema_change, file=file)
-
-    print('Macd:', file=file)
-    print(macd[macd.size - 1], file=file)
+    print('Ema Percent:', file=file)
+    print(short_ema_percent, file=file)
 
     print('Macd Angle:', file=file)
     print(macd_angle, file=file)
-
-    print('Macd Velocity:', file=file)
-    print(macd_velocity, file=file)
 
     print('Macd Acceleration', file=file)
     print(macd_acceleration, file=file)
