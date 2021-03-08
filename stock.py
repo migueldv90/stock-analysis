@@ -15,6 +15,8 @@ def ticker_analysis(ticker):
     macd_angle = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
     velocity = macd[macd.size - 1] - macd[macd.size - 2]
 
+    acceleration = (macd[macd.size - 1] - macd[macd.size - 2]) - (macd[macd.size - 2] - macd[macd.size - 3])
+
     print('Ticker:')
     print(ticker)
 
@@ -29,5 +31,8 @@ def ticker_analysis(ticker):
 
     print('Velocity:')
     print(velocity)
+
+    print('Acceleration')
+    print(acceleration)
 
     print('')
