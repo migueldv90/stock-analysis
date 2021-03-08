@@ -5,8 +5,8 @@ import yfinance
 def ticker_analysis(ticker, file):
     data = yfinance.download(ticker, period="5d", interval="30m", prepost=True)
 
-    short_sma = data.Close.rolling(window=10).mean()
-    long_sma = data.Close.rolling(window=20).mean()
+    sma_10 = data.Close.rolling(window=10).mean()
+    sma_20 = data.Close.rolling(window=20).mean()
 
     ema_10 = data.Close.ewm(span=10, adjust=False).mean()
     ema_20 = data.Close.ewm(span=20, adjust=False).mean()
