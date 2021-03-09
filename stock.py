@@ -34,6 +34,9 @@ def ticker_analysis(ticker, time_frame, file):
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_frame + ' - ' + ticker_status, file=file)
 
+    print('Price:', file=file)
+    print(data.Close[data.Close.size - 2], file=file)
+
     print('Ema 10 Delta:', file=file)
     print(ema_10_delta, file=file)
 
