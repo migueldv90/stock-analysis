@@ -2,8 +2,8 @@ import numpy
 import yfinance
 
 
-def ticker_scan(ticker, time_frame, file):
-    data = yfinance.download(ticker, period="30d", interval=time_frame, prepost=True)
+def ticker_scan(ticker, time_period, time_interval, file):
+    data = yfinance.download(ticker, period=time_period, interval=time_interval, prepost=True)
 
     sma_10 = data.Close.rolling(window=10).mean()
     sma_20 = data.Close.rolling(window=20).mean()
@@ -37,7 +37,7 @@ def ticker_scan(ticker, time_frame, file):
 
     if ticker_status == 'Buy':
         print('Ticker:', file=file)
-        print(ticker + ' - ' + time_frame + ' - ' + ticker_status, file=file)
+        print(ticker + ' - ' + time_interval + ' - ' + ticker_status, file=file)
 
         print('Price:', file=file)
         print(data.Close[data.Close.size - 1], file=file)
