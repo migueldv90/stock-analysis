@@ -3,9 +3,8 @@ import threading
 from ticker.analysis import ticker_analysis
 
 
-from tickers.robinhood import tickers
-from tickers.watchlist import tickers
-from tickers.etfs import tickers
+from tickers.robinhood import tickers as rb
+from tickers.etfs import tickers as etfs
 
 
 def main():
@@ -21,5 +20,6 @@ def main():
 time_period = '30d'
 time_interval = '1d'
 
+tickers = rb + etfs
 
 main()
