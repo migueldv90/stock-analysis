@@ -37,11 +37,17 @@ def ticker_analysis(ticker, time_frame, file):
     print('Price:', file=file)
     print(data.Close[data.Close.size - 1], file=file)
 
+    print('Ema 10:', file=file)
+    print(ema_10[ema_10.size - 1], file=file)
+
     print('Ema 10 Delta:', file=file)
     print(ema_10_delta, file=file)
 
     print('Ema 10 Delta Percent:', file=file)
     print(ema_10_delta_percent, file=file)
+
+    print('Macd:', file=file)
+    print(macd[macd.size - 1], file=file)
 
     print('Macd Angle:', file=file)
     print(macd_angle, file=file)
