@@ -2,9 +2,7 @@ import datetime
 import threading
 from ticker.scan import ticker_scan
 
-from tickers.robinhood import tickers
-from tickers.watchlist import tickers
-from tickers.etfs import tickers
+
 from tickers.qqq import tickers
 
 
