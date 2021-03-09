@@ -1,6 +1,6 @@
 import datetime
 import threading
-from stock import ticker_analysis
+from ticker.analysis import ticker_analysis
 
 
 def main():
