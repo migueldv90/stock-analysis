@@ -1,6 +1,7 @@
 .vscode/
 
-tickers.txt
+_scan.txt
+_analysis.txt
 
 *.log
 *.pyc
