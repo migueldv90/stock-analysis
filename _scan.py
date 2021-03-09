@@ -4,6 +4,7 @@ from ticker.scan import ticker_scan
 
 
 from tickers.qqq import tickers
+from tickers.watchlist import tickers
 
 
 def main():

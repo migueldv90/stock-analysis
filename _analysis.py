@@ -2,6 +2,7 @@ import datetime
 import threading
 from ticker.analysis import ticker_analysis
 
+
 from tickers.robinhood import tickers
 from tickers.watchlist import tickers
 from tickers.etfs import tickers
