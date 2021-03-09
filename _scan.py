@@ -1,13 +1,13 @@
 import datetime
 import threading
-from ticker.analysis import ticker_analysis
+from ticker.scan import ticker_scan
 from tickers.robinhood import tickers
 
 
 def main():
     file = open('tickers.txt', 'w')
     for ticker in tickers:
-        ticker_analysis(ticker, time_period, time_interval, file)
+        ticker_scan(ticker, time_period, time_interval, file)
     file.close()
 
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
