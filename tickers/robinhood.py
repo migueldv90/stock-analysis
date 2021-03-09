@@ -1,4 +1,8 @@
 tickers = [
+    'pltr',
+    'be',
+    'baba',
+    'lndc',
     'dkng',
     'penn',
     'flux',
