@@ -9,7 +9,7 @@ from tickers.crypto import tickers as cp
 
 
 def main():
-    file = open('tickers.txt', 'w')
+    file = open('_analysis.txt', 'w')
     for ticker in tickers:
         ticker_analysis(ticker, time_period, time_interval, file)
     file.close()

@@ -8,7 +8,7 @@ from tickers.watchlist import tickers as wl
 
 
 def main():
-    file = open('tickers.txt', 'w')
+    file = open('_scan.txt', 'w')
     for ticker in tickers:
         ticker_scan(ticker, time_period, time_interval, file)
     file.close()
