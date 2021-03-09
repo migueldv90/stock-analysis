@@ -28,8 +28,10 @@ def ticker_analysis(ticker, time_frame, file):
         ticker_status = 'Buy'
     elif macd_angle < 0 and macd_acceleration < 0 and stoch < 80:
         ticker_status = 'Sell'
-    else:
-        ticker_status = 'Hold'
+    elif stoch > 80:
+        ticker_status = 'Hold Buy'
+    elif stoch < 20:
+        ticker_status = 'Hold Sell'
 
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_frame + ' - ' + ticker_status, file=file)
