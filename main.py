@@ -1,6 +1,7 @@
 import datetime
 import threading
 from ticker.analysis import ticker_analysis
+from tickers.robinhood import tickers
 
 
 def main():
@@ -11,9 +12,6 @@ def main():
 
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
     threading.Timer(1800, main).start()
-
-
-tickers = ['btc-usd', 'eth-usd', 'ltc-usd']
 
 
 time_frame = '1d'
