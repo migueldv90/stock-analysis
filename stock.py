@@ -31,8 +31,8 @@ def ticker_analysis(ticker, time_frame, file):
     else:
         ticker_status = 'Hold'
 
-    print('Ticker: ' + ticker_status, file=file)
-    print(ticker + ' - ' + time_frame, file=file)
+    print('Ticker:', file=file)
+    print(ticker + ' - ' + time_frame + ' - ' + ticker_status, file=file)
 
     print('Ema 10 Delta:', file=file)
     print(ema_10_delta, file=file)
