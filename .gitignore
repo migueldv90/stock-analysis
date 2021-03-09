@@ -1,5 +1,7 @@
 .vscode/
 
+tickers.txt
+
 *.log
 *.pyc
 *.iml
