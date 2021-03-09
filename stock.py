@@ -19,7 +19,17 @@ def ticker_analysis(ticker, time_frame, file):
     macd_angle = numpy.rad2deg(numpy.arctan2(macd[macd.size - 2] - macd[macd.size - 3], 1))
     macd_acceleration = (macd[macd.size - 2] - macd[macd.size - 3]) - (macd[macd.size - 3] - macd[macd.size - 2])
 
-    status = 'Buy' if (macd_angle > 0 and macd_acceleration > 0) else 'Sell' if (macd_angle < 0 and macd_acceleration < 0) else 'Hold'
+    low = data.Low.rolling(10).min()
+    high = data.High.rolling(10).max()
+    stoch = ((data.Close[data.Close.size - 2] - low[low.size - 2]) / (high[high.size - 2] - low[low.size - 2])) * 100
+
+    status = ''
+    if macd_angle > 0 and macd_acceleration > 0 and stoch > 20:
+        status = 'Buy'
+    elif macd_angle < 0 and macd_acceleration < 0 and stoch < 80:
+        status = 'Sell'
+    else:
+        status = 'Hold'
 
     print('Ticker: ' + status, file=file)
     print(ticker + ' - ' + time_frame, file=file)
@@ -33,7 +43,10 @@ def ticker_analysis(ticker, time_frame, file):
     print('Macd Angle:', file=file)
     print(macd_angle, file=file)
 
-    print('MacdAcceleration', file=file)
+    print('Macd Acceleration', file=file)
     print(macd_acceleration, file=file)
+
+    print('Stoch', file=file)
+    print(stoch, file=file)
 
     print('', file=file)
