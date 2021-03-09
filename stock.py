@@ -23,21 +23,21 @@ def ticker_analysis(ticker, time_frame, file):
     high_10 = data.High.rolling(10).max()
     stoch = ((data.Close[data.Close.size - 2] - low_10[low_10.size - 2]) / (high_10[high_10.size - 2] - low_10[low_10.size - 2])) * 100
 
-    status = ''
+    ticker_status = ''
     if macd_angle > 0 and macd_acceleration > 0 and stoch > 20:
-        status = 'Buy'
+        ticker_status = 'Buy'
     elif macd_angle < 0 and macd_acceleration < 0 and stoch < 80:
-        status = 'Sell'
+        ticker_status = 'Sell'
     else:
-        status = 'Hold'
+        ticker_status = 'Hold'
 
-    print('Ticker: ' + status, file=file)
+    print('Ticker: ' + ticker_status, file=file)
     print(ticker + ' - ' + time_frame, file=file)
 
-    print('Ema 10 Change:', file=file)
+    print('Ema 10 Delta:', file=file)
     print(ema_10_delta, file=file)
 
-    print('Ema 10 Change Percent:', file=file)
+    print('Ema 10 Delta Percent:', file=file)
     print(ema_10_delta_percent, file=file)
 
     print('Macd Angle:', file=file)
