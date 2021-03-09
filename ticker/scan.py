@@ -35,7 +35,7 @@ def ticker_scan(ticker, time_period, time_interval, file):
     else:
         ticker_status = 'Hold'
 
-    if ticker_status == 'Buy':
+    if ticker_status == 'Buy' or ticker_status == 'Hold Buy':
         print('Ticker:', file=file)
         print(ticker + ' - ' + time_interval + ' - ' + ticker_status, file=file)
 
