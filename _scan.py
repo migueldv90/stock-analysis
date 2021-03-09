@@ -3,8 +3,8 @@ import threading
 from ticker.scan import ticker_scan
 
 
-from tickers.qqq import tickers
-from tickers.watchlist import tickers
+from tickers.qqq import tickers as qqq
+from tickers.watchlist import tickers as wl
 
 
 def main():
@@ -19,6 +19,9 @@ def main():
 
 time_period = '30d'
 time_interval = '1d'
+
+
+tickers = wl
 
 
 main()
