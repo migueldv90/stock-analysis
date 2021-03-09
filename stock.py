@@ -3,7 +3,7 @@ import yfinance
 
 
 def ticker_analysis(ticker, time_frame, file):
-    data = yfinance.download(ticker, period="5d", interval=time_frame, prepost=True)
+    data = yfinance.download(ticker, period="30d", interval=time_frame, prepost=True)
 
     sma_10 = data.Close.rolling(window=10).mean()
     sma_20 = data.Close.rolling(window=20).mean()
