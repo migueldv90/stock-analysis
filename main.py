@@ -13,7 +13,7 @@ def main():
     threading.Timer(900, main).start()
 
 
-tickers = ['dkng', 'penn', 'flux', 'gevo', 'mu', 'jmia', 'tigr', 'nndm', 'dm', 'csiq', 'lazr', 'idex', 'nio', 'riot', 'mara', 'mmm']
+tickers = ['dkng', 'penn', 'flux', 'gevo', 'mu', 'jmia', 'tigr', 'nndm', 'dm', 'csiq', 'lazr', 'idex', 'nio', 'riot', 'mara', 'mmm', 'csco']
 tickers = ['tan', 'icln', 'arkg', 'arkq', 'arkf', 'arkw', 'arkk', 'qqq', 'spyg', 'spy']
 tickers = ['btc-usd', 'eth-usd', 'ltc-usd']
 
