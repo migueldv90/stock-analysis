@@ -5,6 +5,7 @@ from ticker.analysis import ticker_analysis
 
 from tickers.robinhood import tickers as rb
 from tickers.etfs import tickers as etfs
+from tickers.crypto import tickers as cp
 
 
 def main():
@@ -20,6 +21,6 @@ def main():
 time_period = '30d'
 time_interval = '1d'
 
-tickers = rb + etfs
+tickers = rb + etfs + cp
 
 main()
