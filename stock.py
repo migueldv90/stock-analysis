@@ -32,6 +32,8 @@ def ticker_analysis(ticker, time_frame, file):
         ticker_status = 'Hold Buy'
     elif stoch < 20:
         ticker_status = 'Hold Sell'
+    else:
+        ticker_status = 'Hold'
 
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_frame + ' - ' + ticker_status, file=file)
