@@ -10,7 +10,7 @@ def main():
     file.close()
 
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
-    threading.Timer(900, main).start()
+    threading.Timer(1800, main).start()
 
 
 tickers = ['dkng', 'penn', 'flux', 'gevo', 'mu', 'jmia', 'tigr', 'nndm', 'dm', 'csiq', 'lazr', 'idex', 'nio', 'riot', 'mara', 'mmm', 'csco']
