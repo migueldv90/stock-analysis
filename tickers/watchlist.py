@@ -19,4 +19,10 @@ tickers = [
     'riot',
     'mara',
     'csco',
+    'pypl',
+    'atvi',
+    'mrna',
+    'mxim',
+    'splk',
+    'tcom',
 ]
