@@ -21,7 +21,7 @@ time_period = '30d'
 time_interval = '1d'
 
 
-tickers = wl
+tickers = qqq
 
 
 main()
