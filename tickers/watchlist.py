@@ -88,4 +88,10 @@ tickers = [
     'ko',
     'k',
     'sbux',
+    'abnb',
+    'dal',
+    'luv',
+    'aal',
+    'ual',
+    'nclh',
 ]
