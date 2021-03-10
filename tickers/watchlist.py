@@ -94,4 +94,10 @@ tickers = [
     'aal',
     'ual',
     'nclh',
+    'ba',
+    'spce',
+    'gsat',
+    'open',
+    'expi',
+    'nrz',
 ]
