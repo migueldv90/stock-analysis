@@ -25,4 +25,11 @@ tickers = [
     'mxim',
     'splk',
     'tcom',
+    'jpm',
+    'bac',
+    'v',
+    'sq',
+    'afrm',
+    'syf',
+    'gpn',
 ]
