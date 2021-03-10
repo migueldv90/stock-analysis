@@ -44,4 +44,10 @@ tickers = [
     'dbx',
     'lmnd',
     'mtch',
+    'aapl',
+    'dell',
+    'amd',
+    'intc',
+    'qcom',
+    'mass',
 ]
