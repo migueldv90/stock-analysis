@@ -1,4 +1,5 @@
 tickers = [
+    'mxim',
     'eh',
     'pltr',
     'be',
@@ -8,7 +9,6 @@ tickers = [
     'penn',
     'flux',
     'gevo',
-    'mu',
     'jmia',
     'tigr',
     'nndm',
