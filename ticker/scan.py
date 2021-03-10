@@ -23,19 +23,21 @@ def ticker_scan(ticker, time_period, time_interval, file):
     high_10 = data.High.rolling(10).max()
     stoch = ((data.Close[data.Close.size - 1] - low_10[low_10.size - 1]) / (high_10[high_10.size - 1] - low_10[low_10.size - 1])) * 100
 
-    ticker_status = ''
-    if macd_angle > 0 and macd_acceleration > 0 and stoch > 20:
+    ticker_status = 'Hold'
+    if stoch > 80:
+        ticker_status = 'Buy - Hold'
+    elif stoch < 20:
+        ticker_status = 'Sell - Hold'
+    elif macd_angle > 0 and macd_acceleration > 0 and stoch > 20:
         ticker_status = 'Buy'
     elif macd_angle < 0 and macd_acceleration < 0 and stoch < 80:
         ticker_status = 'Sell'
-    elif stoch > 80:
-        ticker_status = 'Hold Buy'
-    elif stoch < 20:
-        ticker_status = 'Hold Sell'
-    else:
-        ticker_status = 'Hold'
+    elif macd_angle < 0 and macd_acceleration > 0:
+        ticker_status = 'Buy - Potential'
+    elif macd_angle > 0 and macd_acceleration < 0:
+        ticker_status = 'Sell - Potential'
 
-    if ticker_status == 'Buy' or ticker_status == 'Hold Buy':
+    if ticker_status == 'Buy' or ticker_status == 'Buy - Hold' or ticker_status == 'Buy - Potential':
         print('Ticker:', file=file)
         print(ticker + ' - ' + time_interval + ' - ' + ticker_status, file=file)
 
