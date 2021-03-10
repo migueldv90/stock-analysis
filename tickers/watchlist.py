@@ -60,4 +60,17 @@ tickers = [
     'fcel',
     'iea',
     'bepc',
+    'tsla',
+    'li',
+    'xpev',
+    'gm',
+    'f',
+    'eh',
+    'qs',
+    'vldr',
+    'fsr',
+    'wkhs',
+    'isun',
+    'beem',
+
 ]
