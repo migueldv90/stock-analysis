@@ -1,4 +1,5 @@
 tickers = [
+    'eh',
     'pltr',
     'be',
     'baba',
@@ -18,5 +19,4 @@ tickers = [
     'nio',
     'riot',
     'mara',
-    'eh',
 ]
