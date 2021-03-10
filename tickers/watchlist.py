@@ -72,5 +72,10 @@ tickers = [
     'wkhs',
     'isun',
     'beem',
-
+    'tgt',
+    'wmt',
+    'jnj',
+    'nke',
+    'crm',
+    'nus',
 ]
