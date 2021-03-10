@@ -18,5 +18,5 @@ tickers = [
     'nio',
     'riot',
     'mara',
-    'csco',
+    'eh',
 ]
