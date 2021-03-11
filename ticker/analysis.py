@@ -19,24 +19,21 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     macd_angle_one = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
     macd_angle_two = numpy.rad2deg(numpy.arctan2(macd[macd.size - 2] - macd[macd.size - 3], 1))
 
-    macd_acceleration_one = (macd[macd.size - 1] - macd[macd.size - 2]) - (macd[macd.size - 2] - macd[macd.size - 3])
-    macd_acceleration_two = (macd[macd.size - 2] - macd[macd.size - 3]) - (macd[macd.size - 3] - macd[macd.size - 4])
-
     stoch_one = ((data.Close[data.Close.size - 1] - low_10[low_10.size - 1]) / (high_10[high_10.size - 1] - low_10[low_10.size - 1])) * 100
 
-    ticker_status = 'Hold'
+    ticker_status = ''
     if stoch_one > 80:
         ticker_status = 'Buy - Hold'
     elif stoch_one < 20:
         ticker_status = 'Sell - Hold'
-    elif macd_angle_one > 0 and macd_acceleration_one > 0 and stoch_one > 20:
+    elif macd_angle_one > 0 and stoch_one > 20:
         ticker_status = 'Buy'
-    elif macd_angle_one < 0 and macd_acceleration_one < 0 and stoch_one < 80:
+    elif macd_angle_one < 0 and stoch_one < 80:
         ticker_status = 'Sell'
-    elif macd_angle_one < 0 and macd_acceleration_one > 0:
-        ticker_status = 'Buy - Potential'
-    elif macd_angle_one > 0 and macd_acceleration_one < 0:
-        ticker_status = 'Sell - Potential'
+    elif macd_angle_one > 0 and macd_angle_two < 0:
+        ticker_status = 'Buy - Now'
+    elif macd_angle_one < 0 and macd_angle_two > 0:
+        ticker_status = 'Sell - Now'
 
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_interval + ' - ' + ticker_status, file=file)
@@ -58,9 +55,6 @@ def ticker_analysis(ticker, time_period, time_interval, file):
 
     print('Macd Angle:', file=file)
     print(macd_angle_one, file=file)
-
-    print('Macd Acceleration', file=file)
-    print(macd_acceleration_one, file=file)
 
     print('Stoch', file=file)
     print(stoch_one, file=file)
