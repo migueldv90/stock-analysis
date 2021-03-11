@@ -1,4 +1,13 @@
 tickers = [
+    'zom',
+    'amd',
+    'abio',
+    'lmnd',
+    'iea',
+    'open',
+    'afrm',
+    'txmd',
+    'afrm',
     'mxim',
     'eh',
     'pltr',
