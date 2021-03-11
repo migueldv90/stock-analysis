@@ -18,6 +18,7 @@ def ticker_analysis(ticker, time_period, time_interval, file):
 
     macd_angle_one = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
     macd_angle_two = numpy.rad2deg(numpy.arctan2(macd[macd.size - 2] - macd[macd.size - 3], 1))
+    macd_angle_three = numpy.rad2deg(numpy.arctan2(macd[macd.size - 3] - macd[macd.size - 4], 1))
 
     stoch_one = ((data.Close[data.Close.size - 1] - low_10[low_10.size - 1]) / (high_10[high_10.size - 1] - low_10[low_10.size - 1])) * 100
 
@@ -26,9 +27,9 @@ def ticker_analysis(ticker, time_period, time_interval, file):
         ticker_status = 'Buy - Hold'
     elif stoch_one < 20:
         ticker_status = 'Sell - Hold'
-    elif macd_angle_one > 0 and macd_angle_two < 0:
+    elif macd_angle_one > 0 and (macd_angle_two < 0 or macd_angle_three < 0):
         ticker_status = 'Buy - Now'
-    elif macd_angle_one < 0 and macd_angle_two > 0:
+    elif macd_angle_one < 0 and (macd_angle_two > 0 or macd_angle_three > 0):
         ticker_status = 'Sell - Now'
     elif macd_angle_one > 0 and stoch_one > 20:
         ticker_status = 'Buy'
