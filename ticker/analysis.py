@@ -53,8 +53,11 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     print('Macd:', file=file)
     print(macd[macd.size - 1], file=file)
 
-    print('Macd Angle:', file=file)
+    print('Macd Angle One:', file=file)
     print(macd_angle_one, file=file)
+
+    print('Macd Angle Two:', file=file)
+    print(macd_angle_two, file=file)
 
     print('Stoch', file=file)
     print(stoch_one, file=file)
