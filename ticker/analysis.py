@@ -41,14 +41,14 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     print('Price:', file=file)
     print(data.Close[data.Close.size - 1], file=file)
 
+    print('Ema 10:', file=file)
+    print(ema_10[ema_10.size - 1], file=file)
+
     print('Sma 10:', file=file)
     print(sma_10[sma_10.size - 1], file=file)
 
     print('Sma 20:', file=file)
     print(sma_20[sma_20.size - 1], file=file)
-
-    print('Ema 10:', file=file)
-    print(ema_10[ema_10.size - 1], file=file)
 
     print('Macd:', file=file)
     print(macd[macd.size - 1], file=file)
