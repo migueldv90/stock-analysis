@@ -124,4 +124,6 @@ tickers = [
     'mp',
     'arec',
     'clf',
+    'mgm',
+    'bmbl',
 ]
