@@ -1,4 +1,7 @@
 tickers = [
+    'znga',
+    'nclh',
+    'docu',
     'zom',
     'amd',
     'abio',
@@ -12,9 +15,6 @@ tickers = [
     'eh',
     'pltr',
     'be',
-    'baba',
-    'lndc',
-    'dkng',
     'penn',
     'flux',
     'gevo',
