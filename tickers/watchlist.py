@@ -125,5 +125,5 @@ tickers = [
     'zm',
     'znga',
     'zom',
-    'zyne'
+    'zyne',
 ]
