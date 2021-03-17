@@ -3,7 +3,6 @@ import threading
 from ticker.scan import ticker_scan
 
 
-from tickers.qqq import tickers as qqq
 from tickers.watchlist import tickers as wl
 
 

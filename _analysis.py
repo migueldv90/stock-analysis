@@ -3,7 +3,6 @@ import threading
 from ticker.analysis import ticker_analysis
 
 
-from tickers.robinhood import tickers as rb
 from tickers.etfs import tickers as etfs
 from tickers.crypto import tickers as cp
 
