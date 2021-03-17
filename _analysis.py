@@ -20,6 +20,6 @@ def main():
 time_period = '30d'
 time_interval = '1d'
 
-tickers = rb + etfs + cp
+tickers = etfs + cp
 
 main()
