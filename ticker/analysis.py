@@ -15,15 +15,15 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     close_two = heikin_ashi_data.Close[heikin_ashi_data.Close.size - 2]
     ha_two = 'green' if (open_two < close_two) else 'red'
 
-    low_10 = data.Low.rolling(10).min()
-    high_10 = data.High.rolling(10).max()
-
     ema_10 = data.Close.ewm(span=10, adjust=False).mean()
     ema_20 = data.Close.ewm(span=20, adjust=False).mean()
 
     macd = ema_10 - ema_20
 
     macd_angle_one = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
+
+    low_10 = data.Low.rolling(10).min()
+    high_10 = data.High.rolling(10).max()
 
     stoch_one = ((data.Close[data.Close.size - 1] - low_10[low_10.size - 1]) / (high_10[high_10.size - 1] - low_10[low_10.size - 1])) * 100
     stoch_two = ((data.Close[data.Close.size - 2] - low_10[low_10.size - 2]) / (high_10[high_10.size - 2] - low_10[low_10.size - 2])) * 100
