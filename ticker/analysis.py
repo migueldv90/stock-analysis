@@ -1,15 +1,22 @@
 import numpy
 import yfinance
+from .heikin_ashi import heikin_ashi
 
 
 def ticker_analysis(ticker, time_period, time_interval, file):
     data = yfinance.download(ticker, period=time_period, interval=time_interval, prepost=True)
+    heikin_ashi_data = heikin_ashi(data)
+
+    open_one = heikin_ashi_data.Open[heikin_ashi_data.Open.size - 1]
+    close_one = heikin_ashi_data.Close[heikin_ashi_data.Close.size - 1]
+    ha_one = 'green' if (open_one < close_one) else 'red'
+
+    open_two = heikin_ashi_data.Open[heikin_ashi_data.Open.size - 2]
+    close_two = heikin_ashi_data.Close[heikin_ashi_data.Close.size - 2]
+    ha_two = 'green' if (open_two < close_two) else 'red'
 
     low_10 = data.Low.rolling(10).min()
     high_10 = data.High.rolling(10).max()
-
-    sma_10 = data.Close.rolling(window=10).mean()
-    sma_20 = data.Close.rolling(window=20).mean()
 
     ema_10 = data.Close.ewm(span=10, adjust=False).mean()
     ema_20 = data.Close.ewm(span=20, adjust=False).mean()
@@ -17,27 +24,28 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     macd = ema_10 - ema_20
 
     macd_angle_one = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
-    macd_angle_two = numpy.rad2deg(numpy.arctan2(macd[macd.size - 2] - macd[macd.size - 3], 1))
-    macd_angle_three = numpy.rad2deg(numpy.arctan2(macd[macd.size - 3] - macd[macd.size - 4], 1))
 
     stoch_one = ((data.Close[data.Close.size - 1] - low_10[low_10.size - 1]) / (high_10[high_10.size - 1] - low_10[low_10.size - 1])) * 100
+    stoch_two = ((data.Close[data.Close.size - 2] - low_10[low_10.size - 2]) / (high_10[high_10.size - 2] - low_10[low_10.size - 2])) * 100
+
+    stoch_angle_one = numpy.rad2deg(numpy.arctan2(stoch_one - stoch_two, 1))
 
     ticker_status = ''
     if stoch_one > 80:
         ticker_status = 'Buy - Hold'
     elif stoch_one < 20:
         ticker_status = 'Sell - Hold'
-    elif macd_angle_one > 0 and stoch_one > 20 and macd_angle_two < 0:
+    elif macd_angle_one > 0 and stoch_angle_one > 0 and ha_one == 'green' and ha_two == 'red':
         ticker_status = 'Buy - Now!'
-    elif macd_angle_one > 0 and stoch_one > 20 and macd_angle_three < 0:
-        ticker_status = 'Buy - Now'
-    elif macd_angle_one < 0 and stoch_one < 80 and macd_angle_two > 0:
+    elif macd_angle_one < 0 and stoch_angle_one < 0 and ha_one == 'red' and ha_two == 'green':
         ticker_status = 'Sell - Now!'
-    elif macd_angle_one < 0 and stoch_one < 80 and macd_angle_three > 0:
+    elif macd_angle_one > 0 and stoch_angle_one > 0 and ha_one == 'green':
+        ticker_status = 'Buy - Now'
+    elif macd_angle_one < 0 and stoch_angle_one < 0 and ha_one == 'red':
         ticker_status = 'Sell - Now'
-    elif macd_angle_one > 0 and stoch_one > 20:
+    elif macd_angle_one > 0:
         ticker_status = 'Buy'
-    elif macd_angle_one < 0 and stoch_one < 80:
+    elif macd_angle_one < 0:
         ticker_status = 'Sell'
 
     print('Ticker:', file=file)
@@ -46,25 +54,10 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     print('Price:', file=file)
     print(data.Close[data.Close.size - 1], file=file)
 
-    print('Ema 10:', file=file)
-    print(ema_10[ema_10.size - 1], file=file)
-
-    print('Sma 10:', file=file)
-    print(sma_10[sma_10.size - 1], file=file)
-
-    print('Sma 20:', file=file)
-    print(sma_20[sma_20.size - 1], file=file)
-
-    print('Macd:', file=file)
-    print(macd[macd.size - 1], file=file)
-
     print('Macd Angle One:', file=file)
     print(macd_angle_one, file=file)
 
-    print('Macd Angle Two:', file=file)
-    print(macd_angle_two, file=file)
-
-    print('Stoch', file=file)
-    print(stoch_one, file=file)
+    print('stoch Angle One', file=file)
+    print(stoch_angle_one, file=file)
 
     print('', file=file)
