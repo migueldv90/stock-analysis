@@ -20,7 +20,10 @@ def ticker_analysis(ticker, time_period, time_interval, file):
 
     macd = ema_10 - ema_20
 
-    macd_angle = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
+    macd_one = macd[macd.size - 1]
+    macd_two = macd[macd.size - 2]
+
+    macd_angle = numpy.rad2deg(numpy.arctan2(macd_one - macd_two, 1))
 
     low_10 = data.Low.rolling(10).min()
     high_10 = data.High.rolling(10).max()
