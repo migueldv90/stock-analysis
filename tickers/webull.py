@@ -1,0 +1,5 @@
+tickers = [
+    'csiq',
+    'flux',
+    'mara',
+]
