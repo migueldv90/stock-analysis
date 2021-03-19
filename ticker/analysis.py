@@ -20,7 +20,7 @@ def ticker_analysis(ticker, time_period, time_interval, file):
 
     macd = ema_10 - ema_20
 
-    macd_angle_one = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
+    macd_angle = numpy.rad2deg(numpy.arctan2(macd[macd.size - 1] - macd[macd.size - 2], 1))
 
     low_10 = data.Low.rolling(10).min()
     high_10 = data.High.rolling(10).max()
@@ -28,24 +28,24 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     stoch_one = ((data.Close[data.Close.size - 1] - low_10[low_10.size - 1]) / (high_10[high_10.size - 1] - low_10[low_10.size - 1])) * 100
     stoch_two = ((data.Close[data.Close.size - 2] - low_10[low_10.size - 2]) / (high_10[high_10.size - 2] - low_10[low_10.size - 2])) * 100
 
-    stoch_angle_one = numpy.rad2deg(numpy.arctan2(stoch_one - stoch_two, 1))
+    stoch_angle = numpy.rad2deg(numpy.arctan2(stoch_one - stoch_two, 1))
 
     ticker_status = ''
     if stoch_one > 80:
         ticker_status = 'Buy - Hold'
     elif stoch_one < 20:
         ticker_status = 'Sell - Hold'
-    elif macd_angle_one > 0 and stoch_angle_one > 0 and ha_one == 'green' and ha_two == 'red':
+    elif macd_angle > 0 and stoch_angle > 0 and ha_one == 'green' and ha_two == 'red':
         ticker_status = 'Buy - Now!'
-    elif macd_angle_one < 0 and stoch_angle_one < 0 and ha_one == 'red' and ha_two == 'green':
+    elif macd_angle < 0 and stoch_angle < 0 and ha_one == 'red' and ha_two == 'green':
         ticker_status = 'Sell - Now!'
-    elif macd_angle_one > 0 and stoch_angle_one > 0 and ha_one == 'green':
+    elif macd_angle > 0 and stoch_angle > 0 and ha_one == 'green':
         ticker_status = 'Buy - Now'
-    elif macd_angle_one < 0 and stoch_angle_one < 0 and ha_one == 'red':
+    elif macd_angle < 0 and stoch_angle < 0 and ha_one == 'red':
         ticker_status = 'Sell - Now'
-    elif macd_angle_one > 0:
+    elif macd_angle > 0:
         ticker_status = 'Buy - Hold'
-    elif macd_angle_one < 0:
+    elif macd_angle < 0:
         ticker_status = 'Sell - Hold'
 
     print('Ticker:', file=file)
@@ -55,9 +55,12 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     print(data.Close[data.Close.size - 1], file=file)
 
     print('Macd Angle One:', file=file)
-    print(macd_angle_one, file=file)
+    print(macd_angle, file=file)
+
+    print('Macd Angle One:', file=file)
+    print(macd_angle, file=file)
 
     print('stoch Angle One', file=file)
-    print(stoch_angle_one, file=file)
+    print(stoch_angle, file=file)
 
     print('', file=file)
