@@ -4,6 +4,8 @@ from ticker.scan import ticker_scan
 
 
 from tickers.watchlist import tickers as wl
+from tickers.crypto import tickers as cp
+from tickers.etfs import tickers as etfs
 
 
 def main():
@@ -20,7 +22,7 @@ time_period = '30d'
 time_interval = '1d'
 
 
-tickers = wl
+tickers = wl + cp + etfs
 
 
 main()

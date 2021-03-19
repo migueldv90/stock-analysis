@@ -3,8 +3,6 @@ import threading
 from ticker.analysis import ticker_analysis
 
 
-from tickers.etfs import tickers as etfs
-from tickers.crypto import tickers as cp
 from tickers.webull import tickers as wb
 
 
@@ -21,6 +19,8 @@ def main():
 time_period = '30d'
 time_interval = '1d'
 
-tickers = wb + cp + etfs
+
+tickers = wb
+
 
 main()
