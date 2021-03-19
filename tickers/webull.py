@@ -1,4 +1,10 @@
 tickers = [
+    'baba',
+
+    'expi',
+
+    'otrk',
+
     'mu',
     'mxim',
 
