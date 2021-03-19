@@ -58,6 +58,9 @@ def ticker_scan(ticker, time_period, time_interval, file):
         print('Price:', file=file)
         print(data.Close[data.Close.size - 1], file=file)
 
+        print('Heikin Ashi:', file=file)
+        print(ha_one, file=file)
+
         print('Macd:', file=file)
         print(macd_one, file=file)
 
