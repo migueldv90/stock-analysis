@@ -51,7 +51,7 @@ def ticker_scan(ticker, time_period, time_interval, file):
     elif macd_angle < 0:
         ticker_status = 'Sell - Hold'
 
-    if ticker_status == 'Buy - Now!' or ticker_status == 'Buy - Now':
+    if ticker_status == 'Buy - Hold' or ticker_status == 'Buy - Now!' or ticker_status == 'Buy - Now':
         print('Ticker:', file=file)
         print(ticker + ' - ' + time_interval + ' - ' + ticker_status, file=file)
 
