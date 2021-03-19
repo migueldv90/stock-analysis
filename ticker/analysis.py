@@ -44,9 +44,9 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     elif macd_angle_one < 0 and stoch_angle_one < 0 and ha_one == 'red':
         ticker_status = 'Sell - Now'
     elif macd_angle_one > 0:
-        ticker_status = 'Buy'
+        ticker_status = 'Buy - Hold'
     elif macd_angle_one < 0:
-        ticker_status = 'Sell'
+        ticker_status = 'Sell - Hold'
 
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_interval + ' - ' + ticker_status, file=file)
