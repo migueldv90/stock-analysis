@@ -16,8 +16,16 @@ def stocks():
     file.close()
 
 
+def scan():
+    file = open('_scan.txt', 'w')
+    for ticker in scan_tickers:
+        analysis(ticker, time_period, time_interval, file)
+    file.close()
+
+
 def main():
     stocks()
+    scan()
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
     threading.Timer(1800, main).start()
 
