@@ -15,3 +15,10 @@ def heikin_ashi(data):
     heikin_ashi_data['Low'] = heikin_ashi_data.loc[:, ['Open', 'Close']].join(data['Low']).min(axis=1)
 
     return heikin_ashi_data
+
+
+def heikin_ashi_color(heikin_ashi_data, index):
+    open = heikin_ashi_data.Open[heikin_ashi_data.Open.size - index]
+    close = heikin_ashi_data.Close[heikin_ashi_data.Close.size - index]
+    color = 'green'if(open < close)else'red'if(open > close)else'white'
+    return color
