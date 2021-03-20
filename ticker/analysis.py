@@ -1,6 +1,6 @@
 import numpy
 import yfinance
-from .stoch import get_stoch_index
+from .stoch import get_stoch_index, get_stoch_diff
 from .macd import get_macd_data, get_macd_index, get_macd_diff
 from .heikin_ashi import get_heikin_ashi_data, get_heikin_ashi_color
 
@@ -19,21 +19,20 @@ def ticker_analysis(ticker, time_period, time_interval, file):
 
     stoch_one = get_stoch_index(data, 1)
     stoch_two = get_stoch_index(data, 2)
-
-    stoch_angle = numpy.rad2deg(numpy.arctan2(stoch_one - stoch_two, 1))
+    stoch_diff = get_stoch_diff(stoch_one, stoch_two)
 
     ticker_status = ''
     if stoch_one > 80:
         ticker_status = 'Buy - Hold'
     elif stoch_one < 20:
         ticker_status = 'Sell - Hold'
-    elif macd_diff > 0 and stoch_angle > 0 and ha_color_one == 'green' and ha_color_two == 'red':
+    elif macd_diff > 0 and stoch_diff > 0 and ha_color_one == 'green' and ha_color_two == 'red':
         ticker_status = 'Buy - Now!'
-    elif macd_diff < 0 and stoch_angle < 0 and ha_color_one == 'red' and ha_color_two == 'green':
+    elif macd_diff < 0 and stoch_diff < 0 and ha_color_one == 'red' and ha_color_two == 'green':
         ticker_status = 'Sell - Now!'
-    elif macd_diff > 0 and stoch_angle > 0 and ha_color_one == 'green':
+    elif macd_diff > 0 and stoch_diff > 0 and ha_color_one == 'green':
         ticker_status = 'Buy - Now'
-    elif macd_diff < 0 and stoch_angle < 0 and ha_color_one == 'red':
+    elif macd_diff < 0 and stoch_diff < 0 and ha_color_one == 'red':
         ticker_status = 'Sell - Now'
     elif macd_diff > 0:
         ticker_status = 'Buy - Hold'
@@ -59,6 +58,6 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     print(stoch_one, file=file)
 
     print('Stoch Angle', file=file)
-    print(stoch_angle, file=file)
+    print(stoch_diff, file=file)
 
     print('', file=file)
