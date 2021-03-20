@@ -11,10 +11,10 @@ def get_status(macd_diff_one, macd_diff_two, stoch_one, stoch_diff_one):
     elif macd_diff_one < 0 and macd_diff_two < 0:
         status = 'Sell - Now'
 
-    # elif macd_diff_one > 0 and stoch_diff > 0 and ha_color_one == 'green':
-    #     status = 'Buy - Now'
-    # elif macd_diff_one < 0 and stoch_diff < 0 and ha_color_one == 'red':
-    #     status = 'Sell - Now'
+    elif macd_diff_one > 0 and stoch_diff_one > 0:
+        status = 'Buy - Strong'
+    elif macd_diff_one < 0 and stoch_diff_one < 0:
+        status = 'Sell-Strong'
 
     elif macd_diff_one > 0:
         status = 'Buy'
