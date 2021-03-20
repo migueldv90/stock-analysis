@@ -7,8 +7,8 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     data = yfinance.download(ticker, period=time_period, interval=time_interval, prepost=True)
 
     heikin_ashi_data = get_heikin_ashi_data(data)
-    ha_one = get_heikin_ashi_color(heikin_ashi_data, 1)
-    ha_two = get_heikin_ashi_color(heikin_ashi_data, 2)
+    ha_color_one = get_heikin_ashi_color(heikin_ashi_data, 1)
+    ha_color_two = get_heikin_ashi_color(heikin_ashi_data, 2)
 
     ema_10 = data.Close.ewm(span=10, adjust=False).mean()
     ema_20 = data.Close.ewm(span=20, adjust=False).mean()
@@ -33,13 +33,13 @@ def ticker_analysis(ticker, time_period, time_interval, file):
         ticker_status = 'Buy - Hold'
     elif stoch_one < 20:
         ticker_status = 'Sell - Hold'
-    elif macd_angle > 0 and stoch_angle > 0 and ha_one == 'green' and ha_two == 'red':
+    elif macd_angle > 0 and stoch_angle > 0 and ha_color_one == 'green' and ha_color_two == 'red':
         ticker_status = 'Buy - Now!'
-    elif macd_angle < 0 and stoch_angle < 0 and ha_one == 'red' and ha_two == 'green':
+    elif macd_angle < 0 and stoch_angle < 0 and ha_color_one == 'red' and ha_color_two == 'green':
         ticker_status = 'Sell - Now!'
-    elif macd_angle > 0 and stoch_angle > 0 and ha_one == 'green':
+    elif macd_angle > 0 and stoch_angle > 0 and ha_color_one == 'green':
         ticker_status = 'Buy - Now'
-    elif macd_angle < 0 and stoch_angle < 0 and ha_one == 'red':
+    elif macd_angle < 0 and stoch_angle < 0 and ha_color_one == 'red':
         ticker_status = 'Sell - Now'
     elif macd_angle > 0:
         ticker_status = 'Buy - Hold'
@@ -53,7 +53,7 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     print(data.Close[data.Close.size - 1], file=file)
 
     print('Heikin Ashi:', file=file)
-    print(ha_one, file=file)
+    print(ha_color_one, file=file)
 
     print('Macd:', file=file)
     print(macd_one, file=file)
