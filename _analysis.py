@@ -1,6 +1,6 @@
 import datetime
 import threading
-from ticker.analysis import ticker_analysis
+from ticker.analysis import analysis
 
 
 from tickers.webull import tickers as wb
@@ -9,7 +9,7 @@ from tickers.webull import tickers as wb
 def main():
     file = open('_analysis.txt', 'w')
     for ticker in tickers:
-        ticker_analysis(ticker, time_period, time_interval, file)
+        analysis(ticker, time_period, time_interval, file)
     file.close()
 
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))

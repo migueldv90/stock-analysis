@@ -5,7 +5,7 @@ from .macd import get_macd_data, get_macd_index, get_macd_diff
 from .heikin_ashi import get_heikin_ashi_data, get_heikin_ashi_color
 
 
-def ticker_analysis(ticker, time_period, time_interval, file):
+def analysis(ticker, time_period, time_interval, file):
     data = yfinance.download(ticker, period=time_period, interval=time_interval, prepost=True)
 
     heikin_ashi_data = get_heikin_ashi_data(data)
