@@ -27,6 +27,7 @@ time_interval = '1d'
 
 
 analysis_tickers = wb
+scan_tickers = wl + cp + etfs
 
 
 main()
