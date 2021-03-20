@@ -35,13 +35,13 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     print('Macd:', file=file)
     print(macd_one, file=file)
 
-    print('Macd Angle:', file=file)
+    print('Macd Diff:', file=file)
     print(macd_diff, file=file)
 
     print('Stoch', file=file)
     print(stoch_one, file=file)
 
-    print('Stoch Angle', file=file)
+    print('Stoch Diff', file=file)
     print(stoch_diff, file=file)
 
     print('', file=file)
