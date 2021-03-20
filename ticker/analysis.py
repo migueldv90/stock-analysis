@@ -1,5 +1,6 @@
 import numpy
 import yfinance
+from .stoch import get_stoch_index
 from .macd import get_macd_data, get_macd_index, get_macd_diff
 from .heikin_ashi import get_heikin_ashi_data, get_heikin_ashi_color
 
@@ -16,11 +17,8 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     macd_two = get_macd_index(macd_data, 2)
     macd_diff = get_macd_diff(macd_one, macd_two)
 
-    low_10 = data.Low.rolling(10).min()
-    high_10 = data.High.rolling(10).max()
-
-    stoch_one = ((data.Close[data.Close.size - 1] - low_10[low_10.size - 1]) / (high_10[high_10.size - 1] - low_10[low_10.size - 1])) * 100
-    stoch_two = ((data.Close[data.Close.size - 2] - low_10[low_10.size - 2]) / (high_10[high_10.size - 2] - low_10[low_10.size - 2])) * 100
+    stoch_one = get_stoch_index(data, 1)
+    stoch_two = get_stoch_index(data, 2)
 
     stoch_angle = numpy.rad2deg(numpy.arctan2(stoch_one - stoch_two, 1))
 
