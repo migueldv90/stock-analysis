@@ -4,6 +4,9 @@ from ticker.analysis import analysis
 
 
 from lists.webull import tickers as wb
+from lists.crypto import tickers as cp
+from lists.etfs import tickers as etfs
+from lists.watchlist import tickers as wl
 
 
 def stocks():
