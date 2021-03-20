@@ -17,8 +17,8 @@ def get_status(ha_color_one, ha_color_two, macd_diff, stoch_one, stoch_diff):
         status = 'Sell - Now'
 
     elif macd_diff > 0:
-        status = 'Buy - Hold'
+        status = 'Buy'
     elif macd_diff < 0:
-        status = 'Sell - Hold'
+        status = 'Sell'
 
     return status
