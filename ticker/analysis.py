@@ -1,5 +1,6 @@
 import numpy
 import yfinance
+from .macd import get_macd_data, get_macd_index
 from .heikin_ashi import get_heikin_ashi_data, get_heikin_ashi_color
 
 
@@ -10,13 +11,9 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     ha_color_one = get_heikin_ashi_color(heikin_ashi_data, 1)
     ha_color_two = get_heikin_ashi_color(heikin_ashi_data, 2)
 
-    ema_10 = data.Close.ewm(span=10, adjust=False).mean()
-    ema_20 = data.Close.ewm(span=20, adjust=False).mean()
-
-    macd = ema_10 - ema_20
-
-    macd_one = macd[macd.size - 1]
-    macd_two = macd[macd.size - 2]
+    macd_data = get_macd_data(data)
+    macd_one = get_macd_index(macd_data, 1)
+    macd_two = get_macd_index(macd_data, 2)
 
     macd_angle = numpy.rad2deg(numpy.arctan2(macd_one - macd_two, 1))
 
