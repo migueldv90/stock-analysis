@@ -15,13 +15,15 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     macd_data = get_macd_data(data)
     macd_one = get_macd_index(macd_data, 1)
     macd_two = get_macd_index(macd_data, 2)
-    macd_diff = get_macd_diff(macd_one, macd_two)
+    macd_three = get_macd_index(macd_data, 3)
+    macd_diff_one = get_macd_diff(macd_one, macd_two)
+    macd_diff_two = get_macd_diff(macd_two, macd_three)
 
     stoch_one = get_stoch_index(data, 1)
     stoch_two = get_stoch_index(data, 2)
-    stoch_diff = get_stoch_diff(stoch_one, stoch_two)
+    stoch_diff_one = get_stoch_diff(stoch_one, stoch_two)
 
-    status = get_status(ha_color_one, ha_color_two, macd_diff, stoch_one, stoch_diff)
+    status = get_status(ha_color_one, ha_color_two, macd_diff_one, macd_diff_two, stoch_one, stoch_diff_one)
 
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_interval + ' - ' + status, file=file)
@@ -36,12 +38,12 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     print(macd_one, file=file)
 
     print('Macd Diff:', file=file)
-    print(macd_diff, file=file)
+    print(macd_diff_one, file=file)
 
     print('Stoch', file=file)
     print(stoch_one, file=file)
 
     print('Stoch Diff', file=file)
-    print(stoch_diff, file=file)
+    print(stoch_diff_one, file=file)
 
     print('', file=file)
