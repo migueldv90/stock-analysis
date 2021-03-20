@@ -1,6 +1,6 @@
 import numpy
 import yfinance
-from .macd import get_macd_data, get_macd_index
+from .macd import get_macd_data, get_macd_index, get_macd_diff
 from .heikin_ashi import get_heikin_ashi_data, get_heikin_ashi_color
 
 
@@ -14,8 +14,7 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     macd_data = get_macd_data(data)
     macd_one = get_macd_index(macd_data, 1)
     macd_two = get_macd_index(macd_data, 2)
-
-    macd_angle = numpy.rad2deg(numpy.arctan2(macd_one - macd_two, 1))
+    macd_diff = get_macd_diff(macd_one, macd_two)
 
     low_10 = data.Low.rolling(10).min()
     high_10 = data.High.rolling(10).max()
@@ -30,17 +29,17 @@ def ticker_analysis(ticker, time_period, time_interval, file):
         ticker_status = 'Buy - Hold'
     elif stoch_one < 20:
         ticker_status = 'Sell - Hold'
-    elif macd_angle > 0 and stoch_angle > 0 and ha_color_one == 'green' and ha_color_two == 'red':
+    elif macd_diff > 0 and stoch_angle > 0 and ha_color_one == 'green' and ha_color_two == 'red':
         ticker_status = 'Buy - Now!'
-    elif macd_angle < 0 and stoch_angle < 0 and ha_color_one == 'red' and ha_color_two == 'green':
+    elif macd_diff < 0 and stoch_angle < 0 and ha_color_one == 'red' and ha_color_two == 'green':
         ticker_status = 'Sell - Now!'
-    elif macd_angle > 0 and stoch_angle > 0 and ha_color_one == 'green':
+    elif macd_diff > 0 and stoch_angle > 0 and ha_color_one == 'green':
         ticker_status = 'Buy - Now'
-    elif macd_angle < 0 and stoch_angle < 0 and ha_color_one == 'red':
+    elif macd_diff < 0 and stoch_angle < 0 and ha_color_one == 'red':
         ticker_status = 'Sell - Now'
-    elif macd_angle > 0:
+    elif macd_diff > 0:
         ticker_status = 'Buy - Hold'
-    elif macd_angle < 0:
+    elif macd_diff < 0:
         ticker_status = 'Sell - Hold'
 
     print('Ticker:', file=file)
@@ -56,7 +55,7 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     print(macd_one, file=file)
 
     print('Macd Angle:', file=file)
-    print(macd_angle, file=file)
+    print(macd_diff, file=file)
 
     print('Stoch', file=file)
     print(stoch_one, file=file)

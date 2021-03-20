@@ -7,3 +7,7 @@ def get_macd_data(data):
 
 def get_macd_index(macd_data, index):
     return macd_data[macd_data.size - index]
+
+
+def get_macd_diff(macd_one, macd_two):
+    return macd_one - macd_two
