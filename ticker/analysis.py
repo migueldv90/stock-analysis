@@ -1,31 +1,14 @@
 import numpy
 import yfinance
-from .heikin_ashi import heikin_ashi
+from .heikin_ashi import heikin_ashi, heikin_ashi_color
 
 
 def ticker_analysis(ticker, time_period, time_interval, file):
     data = yfinance.download(ticker, period=time_period, interval=time_interval, prepost=True)
+
     heikin_ashi_data = heikin_ashi(data)
-
-
-
-
-    open_one = heikin_ashi_data.Open[heikin_ashi_data.Open.size - 1]
-    close_one = heikin_ashi_data.Close[heikin_ashi_data.Close.size - 1]
-    ha_one = 'green' if (open_one < close_one) else 'red'
-
-
-
-
-    open_two = heikin_ashi_data.Open[heikin_ashi_data.Open.size - 2]
-    close_two = heikin_ashi_data.Close[heikin_ashi_data.Close.size - 2]
-    ha_two = 'green' if (open_two < close_two) else 'red'
-
-
-
-
-
-
+    ha_one = heikin_ashi_color(heikin_ashi_data, 1)
+    ha_two = heikin_ashi_color(heikin_ashi_data, 2)
 
     ema_10 = data.Close.ewm(span=10, adjust=False).mean()
     ema_20 = data.Close.ewm(span=20, adjust=False).mean()
