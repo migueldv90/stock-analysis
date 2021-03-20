@@ -1,7 +1,7 @@
 .vscode/
 
 _scan.txt
-_analysis.txt
+_stocks.txt
 
 *.log
 *.pyc
