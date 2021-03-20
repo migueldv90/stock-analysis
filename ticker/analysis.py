@@ -40,10 +40,10 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     print('Macd Diff One:', file=file)
     print(macd_diff_one, file=file)
 
-    print('Stoch', file=file)
+    print('Stoch:', file=file)
     print(stoch_one, file=file)
 
-    print('Stoch Diff One', file=file)
+    print('Stoch Diff One:', file=file)
     print(stoch_diff_one, file=file)
 
     print('', file=file)
