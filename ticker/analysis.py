@@ -34,11 +34,17 @@ def ticker_analysis(ticker, time_period, time_interval, file):
     print('Heikin Ashi One:', file=file)
     print(ha_color_one, file=file)
 
+    print('Heikin Ashi Two:', file=file)
+    print(ha_color_two, file=file)
+
     print('Macd:', file=file)
     print(macd_one, file=file)
 
     print('Macd Diff One:', file=file)
     print(macd_diff_one, file=file)
+
+    print('Macd Diff Two:', file=file)
+    print(macd_diff_two, file=file)
 
     print('Stoch:', file=file)
     print(stoch_one, file=file)
