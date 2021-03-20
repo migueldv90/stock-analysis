@@ -1,0 +1,5 @@
+def get_macd_data(data):
+    ema_10 = data.Close.ewm(span=10, adjust=False).mean()
+    ema_20 = data.Close.ewm(span=20, adjust=False).mean()
+    macd_data = ema_10 - ema_20
+    return macd_data
