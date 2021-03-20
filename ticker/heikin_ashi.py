@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def heikin_ashi(data):
+def get_heikin_ashi_data(data):
     heikin_ashi_data = pd.DataFrame(index=data.index.values, columns=['Open', 'High', 'Low', 'Close'])
     heikin_ashi_data['Close'] = (data['Open'] + data['High'] + data['Low'] + data['Close']) / 4
 
@@ -17,7 +17,7 @@ def heikin_ashi(data):
     return heikin_ashi_data
 
 
-def heikin_ashi_color(heikin_ashi_data, index):
+def get_heikin_ashi_color(heikin_ashi_data, index):
     open = heikin_ashi_data.Open[heikin_ashi_data.Open.size - index]
     close = heikin_ashi_data.Close[heikin_ashi_data.Close.size - index]
     color = 'green'if(open < close)else'red'if(open > close)else'white'

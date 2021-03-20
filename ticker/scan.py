@@ -1,11 +1,11 @@
 import numpy
 import yfinance
-from .heikin_ashi import heikin_ashi
+from .heikin_ashi import get_heikin_ashi_data
 
 
 def ticker_scan(ticker, time_period, time_interval, file):
     data = yfinance.download(ticker, period=time_period, interval=time_interval, prepost=True)
-    heikin_ashi_data = heikin_ashi(data)
+    heikin_ashi_data = get_heikin_ashi_data(data)
 
     open_one = heikin_ashi_data.Open[heikin_ashi_data.Open.size - 1]
     close_one = heikin_ashi_data.Close[heikin_ashi_data.Close.size - 1]

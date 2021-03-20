@@ -1,14 +1,14 @@
 import numpy
 import yfinance
-from .heikin_ashi import heikin_ashi, heikin_ashi_color
+from .heikin_ashi import get_heikin_ashi_data, get_heikin_ashi_color
 
 
 def ticker_analysis(ticker, time_period, time_interval, file):
     data = yfinance.download(ticker, period=time_period, interval=time_interval, prepost=True)
 
-    heikin_ashi_data = heikin_ashi(data)
-    ha_one = heikin_ashi_color(heikin_ashi_data, 1)
-    ha_two = heikin_ashi_color(heikin_ashi_data, 2)
+    heikin_ashi_data = get_heikin_ashi_data(data)
+    ha_one = get_heikin_ashi_color(heikin_ashi_data, 1)
+    ha_two = get_heikin_ashi_color(heikin_ashi_data, 2)
 
     ema_10 = data.Close.ewm(span=10, adjust=False).mean()
     ema_20 = data.Close.ewm(span=20, adjust=False).mean()
