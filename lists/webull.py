@@ -16,6 +16,9 @@ tickers = [
     'dm',
     'nndm',
 
+    'dis',
+    'aapl',
+
     'csiq',
     'flux',
     'gevo',
