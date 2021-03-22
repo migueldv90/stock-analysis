@@ -5,7 +5,6 @@ tickers = [
 
     'otrk',
 
-    'mu',
     'mxim',
 
     'nio',
@@ -20,7 +19,4 @@ tickers = [
     'csiq',
     'flux',
     'gevo',
-
-    'riot',
-    'mara',
 ]
