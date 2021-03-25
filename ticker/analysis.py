@@ -1,13 +1,11 @@
 import yfinance
-from .highlow import highlow
 from .status import get_status
 from .stoch import get_stoch_index
-from .macd import get_macd_data, get_macd_index, get_macd_diff, get_signal_data
+from .macd import get_macd_data, get_macd_index, get_macd_diff, get_signal_data, get_signal_index, get_signal_diff
 
 
 def analysis(ticker, time_period, time_interval, file):
     data = yfinance.download(ticker, period=time_period, interval=time_interval, prepost=True)
-    l_min_max, l_min, l_max = highlow(data)
 
     macd_data = get_macd_data(data)
     macd_one = get_macd_index(macd_data, 1)
@@ -15,10 +13,13 @@ def analysis(ticker, time_period, time_interval, file):
     macd_diff = get_macd_diff(macd_one, macd_two)
 
     signal_data = get_signal_data(macd_data)
+    signal_one = get_signal_index(signal_data, 1)
+    signal_two = get_signal_index(signal_data, 2)
+    signal_diff = get_signal_diff(signal_one, signal_two)
 
     stoch = get_stoch_index(data, 1)
 
-    status = get_status(l_min_max, l_min, l_max, macd_diff, stoch)
+    status = get_status(macd_one, macd_diff, signal_one, signal_diff, stoch)
 
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_interval + ' - ' + status, file=file)
