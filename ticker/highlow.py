@@ -7,7 +7,7 @@ def highlow(data):
 
     x = np.linspace(0, max(x_data), max(x_data) + 1)
 
-    x_pol = np.polyfit(x_data, y_data, 25)
+    x_pol = np.polyfit(x_data, y_data, 75)
     y_pol = np.polyval(x_pol, x)
 
     min_max = np.diff(np.sign(np.diff(y_pol))).nonzero()[0] + 1
