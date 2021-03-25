@@ -1,9 +1,9 @@
-def get_status(l_min_max, l_min, l_max, macd_diff, stoch_one, stoch_diff):
+def get_status(l_min_max, l_min, l_max, macd_diff, stoch):
     status = ''
 
-    if stoch_one >= 80:
+    if stoch >= 80:
         status = 'Buy - Overbought'
-    elif stoch_one <= 20:
+    elif stoch <= 20:
         status = 'Sell - Oversold'
 
     elif macd_diff > 0:
