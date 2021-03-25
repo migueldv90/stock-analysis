@@ -16,6 +16,11 @@ def get_status(sma_20_diff_one, sma_20_diff_two, signal_diff_one, signal_diff_tw
     elif signal_diff_one < 0 and signal_diff_two > 0:
         status = 'Sell - Watch'
 
+    elif signal_diff_one > 0 or sma_20_diff_one > 0:
+        status = 'Buy - Hold'
+    elif signal_diff_one < 0 or sma_20_diff_one < 0:
+        status = 'Sell - Hold'
+
     elif signal_diff_one > 0:
         status = 'Buy'
     elif signal_diff_one < 0:
