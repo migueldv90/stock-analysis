@@ -34,6 +34,12 @@ def analysis(ticker, time_period, time_interval, file):
     print('Price:', file=file)
     print(data.Close[data.Close.size - 1], file=file)
 
+    print('SMA 20:', file=file)
+    print(sma_20_one, file=file)
+
+    print('SMA 20 Diff:', file=file)
+    print(sma_20_diff_one, file=file)
+
     print('Macd:', file=file)
     print(macd_one, file=file)
 
