@@ -10,7 +10,7 @@ def highlow(data):
     x_pol = np.polyfit(x_data, y_data, 75)
     y_pol = np.polyval(x_pol, x)
 
-    min_max = np.diff(np.sign(np.diff(y_pol))).nonzero()[0] + 1
+    l_min_max = np.diff(np.sign(np.diff(y_pol))).nonzero()[0] + 1
     l_min = (np.diff(np.sign(np.diff(y_pol))) > 0).nonzero()[0] + 1
     l_max = (np.diff(np.sign(np.diff(y_pol))) < 0).nonzero()[0] + 1
-    return min_max, l_min, l_max
+    return l_min_max, l_min, l_max

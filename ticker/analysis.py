@@ -7,7 +7,7 @@ from .macd import get_macd_data, get_macd_index, get_macd_diff
 
 def analysis(ticker, time_period, time_interval, file):
     data = yfinance.download(ticker, period=time_period, interval=time_interval, prepost=True)
-    min_max, l_min, l_max = highlow(data)
+    l_min_max, l_min, l_max = highlow(data)
 
     macd_data = get_macd_data(data)
     macd_one = get_macd_index(macd_data, 1)
