@@ -1,5 +1,9 @@
 .vscode/
 
+webull.py
+_scan.txt
+_stocks.txt
+
 *.log
 *.pyc
 *.iml

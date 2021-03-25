@@ -1,0 +1,6 @@
+[flake8]
+# E722 — do not use bare except
+# E402 — module level import not at top of file
+ignore = E402, E722
+exclude = migrations
+max-line-length = 140
