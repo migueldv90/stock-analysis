@@ -13,3 +13,4 @@ def highlow(data):
     min_max = np.diff(np.sign(np.diff(y_pol))).nonzero()[0] + 1
     l_min = (np.diff(np.sign(np.diff(y_pol))) > 0).nonzero()[0] + 1
     l_max = (np.diff(np.sign(np.diff(y_pol))) < 0).nonzero()[0] + 1
+    return min_max, l_min, l_max
