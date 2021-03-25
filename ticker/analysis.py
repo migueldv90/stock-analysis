@@ -1,6 +1,5 @@
 import yfinance
 from .status import get_status
-from .stoch import get_stoch_index
 from .macd import get_macd_data, get_macd_index, get_macd_diff, get_signal_data, get_signal_index, get_signal_diff
 
 
@@ -17,9 +16,7 @@ def analysis(ticker, time_period, time_interval, file):
     signal_two = get_signal_index(signal_data, 2)
     signal_diff = get_signal_diff(signal_one, signal_two)
 
-    stoch = get_stoch_index(data, 1)
-
-    status = get_status(macd_one, macd_diff, signal_one, signal_diff, stoch)
+    status = get_status(macd_one, macd_diff, signal_one, signal_diff)
 
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_interval + ' - ' + status, file=file)
@@ -38,8 +35,5 @@ def analysis(ticker, time_period, time_interval, file):
 
     print('Signal Diff:', file=file)
     print(signal_diff, file=file)
-
-    print('Stoch:', file=file)
-    print(stoch, file=file)
 
     print('', file=file)
