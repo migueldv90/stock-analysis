@@ -22,7 +22,7 @@ def analysis(ticker, time_period, time_interval, file):
     signal_two = get_signal_index(signal_data, 2)
     signal_diff = get_signal_diff(signal_one, signal_two)
 
-    status = get_status(sma_20_one, sma_20_diff, macd_one, macd_diff, signal_one, signal_diff)
+    status = get_status(sma_20_diff, signal_diff)
 
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_interval + ' - ' + status, file=file)
