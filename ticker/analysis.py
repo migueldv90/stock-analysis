@@ -5,7 +5,7 @@ from .macd import get_macd_data, get_macd_index, get_macd_diff, get_signal_data,
 
 
 def analysis(ticker, time_period, time_interval, file):
-    data = yfinance.download(ticker, period=time_period, interval=time_interval, prepost=True)
+    data = yfinance.download(ticker, period=time_period, interval=time_interval, prepost=False)
 
     sma_20_data = get_sma_20_data(data)
     sma_20_one = get_sma_20_index(sma_20_data, 1)
@@ -19,12 +19,14 @@ def analysis(ticker, time_period, time_interval, file):
     macd_two = get_macd_index(macd_data, 2)
     macd_diff = get_macd_diff(macd_one, macd_two)
 
-    signal_data = get_signal_data(macd_data)
+    signal_data = get_signal_data(data)
     signal_one = get_signal_index(signal_data, 1)
     signal_two = get_signal_index(signal_data, 2)
-    signal_diff = get_signal_diff(signal_one, signal_two)
+    signal_three = get_signal_index(signal_data, 3)
+    signal_diff_one = get_signal_diff(signal_one, signal_two)
+    signal_diff_two = get_signal_diff(signal_two, signal_three)
 
-    status = get_status(sma_20_diff_one, sma_20_diff_two, signal_diff)
+    status = get_status(sma_20_diff_one, sma_20_diff_two, signal_diff_one, signal_diff_two)
 
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_interval + ' - ' + status, file=file)

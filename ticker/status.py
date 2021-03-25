@@ -1,19 +1,19 @@
-def get_status(sma_20_diff_one, sma_20_diff_two, signal_diff):
+def get_status(sma_20_diff_one, sma_20_diff_two, signal_diff_one, signal_diff_two):
     status = ''
 
-    if signal_diff > 0 and sma_20_diff_one > 0 and sma_20_diff_two < 0:
+    if signal_diff_one > 0 and sma_20_diff_one > 0 and sma_20_diff_two < 0:
         status = 'Buy - Now'
-    elif signal_diff < 0 and sma_20_diff_one < 0 and sma_20_diff_two > 0:
+    elif signal_diff_one < 0 and sma_20_diff_one < 0 and sma_20_diff_two > 0:
         status = 'Sell - Now'
 
-    elif signal_diff > 0 and sma_20_diff_one > 0:
+    elif signal_diff_one > 0 and sma_20_diff_one > 0:
         status = 'Buy - Strong'
-    elif signal_diff < 0 and sma_20_diff_one < 0:
+    elif signal_diff_one < 0 and sma_20_diff_one < 0:
         status = 'Sell - Strong'
 
-    elif signal_diff > 0:
+    elif signal_diff_one > 0:
         status = 'Buy'
-    elif signal_diff < 0:
+    elif signal_diff_one < 0:
         status = 'Sell'
 
     return status
