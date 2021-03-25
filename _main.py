@@ -30,7 +30,7 @@ def main():
     threading.Timer(1800, main).start()
 
 
-time_period = '100d'
+time_period = '50d'
 time_interval = '30m'
 
 
