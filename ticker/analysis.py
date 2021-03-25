@@ -10,7 +10,9 @@ def analysis(ticker, time_period, time_interval, file):
     sma_20_data = get_sma_20_data(data)
     sma_20_one = get_sma_20_index(sma_20_data, 1)
     sma_20_two = get_sma_20_index(sma_20_data, 2)
-    sma_20_diff = get_sma_20_diff(sma_20_one, sma_20_two)
+    sma_20_three = get_sma_20_index(sma_20_data, 3)
+    sma_20_diff_one = get_sma_20_diff(sma_20_one, sma_20_two)
+    sma_20_diff_two = get_sma_20_diff(sma_20_two, sma_20_three)
 
     macd_data = get_macd_data(data)
     macd_one = get_macd_index(macd_data, 1)
@@ -22,7 +24,7 @@ def analysis(ticker, time_period, time_interval, file):
     signal_two = get_signal_index(signal_data, 2)
     signal_diff = get_signal_diff(signal_one, signal_two)
 
-    status = get_status(sma_20_diff, signal_diff)
+    status = get_status(sma_20_diff_one, sma_20_diff_two, signal_diff)
 
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_interval + ' - ' + status, file=file)
