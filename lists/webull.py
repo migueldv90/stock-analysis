@@ -1,25 +1,12 @@
 tickers = [
+    'aapl',
     'baba',
-
-    'expi',
-
-    'otrk',
-
+    'csiq',
     'mxim',
-
-    'nio',
-    'idex',
-    'lazr',
-
     'dkng',
 
-    'dm',
-    'nndm',
-
-    'dis',
-    'aapl',
-
-    'csiq',
-    'flux',
-    'gevo',
+    'spy',
+    'spyg',
+    'qqq',
+    'tsla',
 ]
