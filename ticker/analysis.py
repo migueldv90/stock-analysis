@@ -5,7 +5,7 @@ from .macd import get_macd_data, get_macd_index, get_macd_diff, get_signal_data,
 
 
 def analysis(ticker, time_period, time_interval, file):
-    data = yfinance.download(ticker, period=time_period, interval=time_interval, prepost=False)
+    data = yfinance.download(ticker, period=time_period, interval=time_interval, prepost=True)
 
     sma_20_data = get_sma_20_data(data)
     sma_20_one = get_sma_20_index(sma_20_data, 1)
