@@ -3,7 +3,6 @@ tickers = [
     'aapl',
     'abio',
     'abnb',
-    'afrm',
     'amc',
     'amd',
     'amgn',
