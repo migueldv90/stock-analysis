@@ -2,7 +2,7 @@ import yfinance
 from .highlow import highlow
 from .status import get_status
 from .stoch import get_stoch_index
-from .macd import get_macd_data, get_macd_index, get_macd_diff
+from .macd import get_macd_data, get_macd_index, get_macd_diff, get_signal_data
 
 
 def analysis(ticker, time_period, time_interval, file):
@@ -13,6 +13,8 @@ def analysis(ticker, time_period, time_interval, file):
     macd_one = get_macd_index(macd_data, 1)
     macd_two = get_macd_index(macd_data, 2)
     macd_diff = get_macd_diff(macd_one, macd_two)
+
+    signal_data = get_signal_data(macd_data)
 
     stoch = get_stoch_index(data, 1)
 
