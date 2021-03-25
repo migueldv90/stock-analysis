@@ -2,9 +2,9 @@ def get_status(sma_20_diff_one, sma_20_diff_two, signal_diff_one, signal_diff_tw
     status = ''
 
     if signal_diff_one > 0 and sma_20_diff_one > 0 and sma_20_diff_two < 0:
-        status = 'Buy - Now'
+        status = 'Buy - Strong - Now'
     elif signal_diff_one < 0 and sma_20_diff_one < 0 and sma_20_diff_two > 0:
-        status = 'Sell - Now'
+        status = 'Sell - Strong - Now'
 
     elif signal_diff_one > 0 and sma_20_diff_one > 0:
         status = 'Buy - Strong'
