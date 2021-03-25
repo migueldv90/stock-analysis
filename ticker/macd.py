@@ -16,3 +16,7 @@ def get_macd_diff(macd_one, macd_two):
 def get_signal_data(macd_data):
     signal_data = macd_data.ewm(span=15, adjust=False).mean()
     return signal_data
+
+
+def get_signal_index(signal_data, index):
+    return signal_data[signal_data.size - index]
