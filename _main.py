@@ -30,8 +30,8 @@ def main():
     threading.Timer(1800, main).start()
 
 
-time_period = '200d'
-time_interval = '1d'
+time_period = '100d'
+time_interval = '30m'
 
 
 analysis_tickers = wb
