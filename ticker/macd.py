@@ -20,3 +20,7 @@ def get_signal_data(macd_data):
 
 def get_signal_index(signal_data, index):
     return signal_data[signal_data.size - index]
+
+
+def get_signal_diff(signal_one, signal_two):
+    return signal_one - signal_two
