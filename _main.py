@@ -10,14 +10,14 @@ from lists.watchlist import tickers as wl
 
 
 def stocks(time_period, time_interval):
-    file = open('_stocks.txt', 'w')
+    file = open('_stocks-' + time_interval + '.txt', 'w')
     for ticker in analysis_tickers:
         analysis(ticker, time_period, time_interval, file)
     file.close()
 
 
 def scan(time_period, time_interval):
-    file = open('_scan.txt', 'w')
+    file = open('_scan' + time_interval + '.txt', 'w')
     for ticker in scan_tickers:
         analysis(ticker, time_period, time_interval, file)
     file.close()
