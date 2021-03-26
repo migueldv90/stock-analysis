@@ -1,5 +1,4 @@
 import datetime
-import threading
 from ticker.analysis import analysis
 
 
@@ -27,7 +26,6 @@ def main(time_period, time_interval):
     stocks(time_period, time_interval)
     scan(time_period, time_interval)
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
-    threading.Timer(1800, main).start()
 
 
 time_period_30d = '30d'
@@ -42,4 +40,5 @@ analysis_tickers = wb
 scan_tickers = wl + cp + etfs
 
 
+main(time_period_30d, time_interval_30m)
 main(time_period_30d, time_interval_30m)
