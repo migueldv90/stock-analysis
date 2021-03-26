@@ -17,7 +17,7 @@ def stocks(time_period, time_interval):
 
 
 def scan(time_period, time_interval):
-    file = open('_scan' + time_interval + '.txt', 'w')
+    file = open('_scan-' + time_interval + '.txt', 'w')
     for ticker in scan_tickers:
         analysis(ticker, time_period, time_interval, file)
     file.close()
