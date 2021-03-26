@@ -13,6 +13,10 @@ def get_macd_diff(macd_one, macd_two):
     return macd_one - macd_two
 
 
+def get_macd_direction(macd_diff):
+    return'positive'if macd_diff > 0 else'negative'
+
+
 def get_signal_data(macd_data):
     signal_data = macd_data.ewm(span=15, adjust=False).mean()
     return signal_data
