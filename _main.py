@@ -34,6 +34,10 @@ time_period_30d = '30d'
 time_interval_30m = '30m'
 
 
+time_period_200d = '200d'
+time_interval_1d = '1d'
+
+
 analysis_tickers = wb
 scan_tickers = wl + cp + etfs
 
