@@ -1,7 +1,7 @@
 import yfinance
 from .status import get_status
 from .sma import get_sma_20_data, get_sma_20_index, get_sma_20_diff
-from .macd import get_macd_data, get_macd_index, get_macd_diff, get_signal_data, get_signal_index, get_signal_diff
+from .macd import get_macd_data, get_macd_index, get_macd_diff, get_macd_direction, get_signal_data, get_signal_index, get_signal_diff
 
 
 def analysis(ticker, time_period, time_interval, file):
@@ -16,6 +16,7 @@ def analysis(ticker, time_period, time_interval, file):
     macd_one = get_macd_index(macd_data, 1)
     macd_two = get_macd_index(macd_data, 2)
     macd_diff = get_macd_diff(macd_one, macd_two)
+    macd_direction = get_macd_direction(macd_diff)
 
     signal_data = get_signal_data(macd_data)
     signal_one = get_signal_index(signal_data, 1)
