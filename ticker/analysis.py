@@ -37,7 +37,7 @@ def analysis(ticker, time_period, time_interval, file):
     print('SMA 20 Diff:', file=file)
     print(sma_20_diff, file=file)
 
-    print('Macd:', file=file)
+    print('Macd:' + macd_direction, file=file)
     print(macd_one, file=file)
 
     print('Macd Diff:', file=file)
