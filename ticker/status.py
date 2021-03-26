@@ -7,8 +7,8 @@ def get_status(sma_20_diff, signal_diff):
         status = 'Sell - Strong'
 
     elif signal_diff > 0:
-        status = 'Buy'
+        status = 'Buy - Signal'
     elif signal_diff < 0:
-        status = 'Sell'
+        status = 'Sell - Signal'
 
     return status
