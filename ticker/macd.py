@@ -18,7 +18,7 @@ def get_macd_direction(macd_diff):
 
 
 def get_signal_data(macd_data):
-    signal_data = macd_data.ewm(span=15, adjust=False).mean()
+    signal_data = macd_data.ewm(span=8, adjust=False).mean()
     return signal_data
 
 
