@@ -9,23 +9,23 @@ from lists.etfs import tickers as etfs
 from lists.watchlist import tickers as wl
 
 
-def stocks():
+def stocks(time_period, time_interval):
     file = open('_stocks.txt', 'w')
     for ticker in analysis_tickers:
         analysis(ticker, time_period, time_interval, file)
     file.close()
 
 
-def scan():
+def scan(time_period, time_interval):
     file = open('_scan.txt', 'w')
     for ticker in scan_tickers:
         analysis(ticker, time_period, time_interval, file)
     file.close()
 
 
-def main():
-    stocks()
-    scan()
+def main(time_period, time_interval):
+    stocks(time_period, time_interval)
+    scan(time_period, time_interval)
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
     threading.Timer(1800, main).start()
 
@@ -38,4 +38,4 @@ analysis_tickers = wb
 scan_tickers = wl + cp + etfs
 
 
-main()
+main(time_period, time_interval)
