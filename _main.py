@@ -30,12 +30,12 @@ def main(time_period, time_interval):
     threading.Timer(1800, main).start()
 
 
-time_period = '30d'
-time_interval = '30m'
+time_period_30d = '30d'
+time_interval_30m = '30m'
 
 
 analysis_tickers = wb
 scan_tickers = wl + cp + etfs
 
 
-main(time_period, time_interval)
+main(time_period_30d, time_interval_30m)
