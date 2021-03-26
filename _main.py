@@ -41,4 +41,4 @@ scan_tickers = wl + cp + etfs
 
 
 main(time_period_30d, time_interval_30m)
-main(time_period_30d, time_interval_30m)
+main(time_period_200d, time_interval_1d)
