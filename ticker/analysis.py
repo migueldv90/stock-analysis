@@ -20,11 +20,9 @@ def analysis(ticker, time_period, time_interval, file):
     signal_data = get_signal_data(macd_data)
     signal_one = get_signal_index(signal_data, 1)
     signal_two = get_signal_index(signal_data, 2)
-    signal_three = get_signal_index(signal_data, 3)
-    signal_diff_one = get_signal_diff(signal_one, signal_two)
-    signal_diff_two = get_signal_diff(signal_two, signal_three)
+    signal_diff = get_signal_diff(signal_one, signal_two)
 
-    status = get_status(sma_20_diff, signal_diff_one, signal_diff_two)
+    status = get_status(sma_20_diff, signal_diff)
 
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_interval + ' - ' + status, file=file)
@@ -48,6 +46,6 @@ def analysis(ticker, time_period, time_interval, file):
     print(signal_one, file=file)
 
     print('Signal Diff:', file=file)
-    print(signal_diff_one, file=file)
+    print(signal_diff, file=file)
 
     print('', file=file)
