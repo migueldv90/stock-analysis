@@ -69,7 +69,7 @@ def analysis(ticker, time_period, time_interval, file):
     print('Stoch Diff One:', file=file)
     print(stoch_diff_one, file=file)
 
-    print('Stoch Diff Tne:', file=file)
+    print('Stoch Diff Two:', file=file)
     print(stoch_diff_two, file=file)
 
     print('', file=file)
