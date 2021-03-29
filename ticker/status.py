@@ -7,9 +7,9 @@ def get_status(stoch_one, stoch_two, stoch_three, stoch_diff_one, stoch_diff_two
         status = 'Sell - Hold'
 
     elif stoch_one >= 75 and stoch_two < 75 and stoch_diff_one > 0:
-        status = 'Buy - Cross'
+        status = 'Buy - Upper Cross'
     elif stoch_one <= 25 and stoch_two > 25 and stoch_diff_one < 0:
-        status = 'Sell - Cross'
+        status = 'Sell - Upper Cross'
 
     elif stoch_one >= 75 and stoch_diff_one > 0:
         status = 'Buy - Critical'
