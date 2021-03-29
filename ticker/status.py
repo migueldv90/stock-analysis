@@ -1,10 +1,10 @@
 def get_status(stoch_one, stoch_two, stoch_diff_one):
     status = ''
 
-    if stoch_one > 80:
-        status = 'Buy - Hold'
-    elif stoch_one < 20:
-        status = 'Sell - Hold'
+    if stoch_one >= 80 and stoch_two >= 80:
+        status = 'Buy - Overbought'
+    elif stoch_one <= 20 and stoch_two <= 20:
+        status = 'Sell - Oversold'
 
     elif stoch_one >= 80 and stoch_two < 80:
         status = 'Buy - Upper'
