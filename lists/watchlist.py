@@ -16,7 +16,6 @@ tickers = [
     'be',
     'beem',
     'bepc',
-    'bmbl',
     'bmy',
     'bynd',
     'can',
