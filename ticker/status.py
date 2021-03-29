@@ -1,4 +1,4 @@
-def get_status(macd_one, stoch_one, stoch_two, stoch_diff):
+def get_status(macd_one, macd_two, stoch_one, stoch_two, stoch_diff):
     status = ''
 
     if stoch_one >= 80 and stoch_two >= 80 and macd_one < 0:
