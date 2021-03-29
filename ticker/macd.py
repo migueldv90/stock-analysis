@@ -14,7 +14,7 @@ def get_macd_diff(macd_one, macd_two):
 
 
 def get_macd_direction(macd_diff):
-    return'Positive'if macd_diff > 0 else'Negative'
+    return (' Positive') if macd_diff > 0 else (' Negative')
 
 
 def get_signal_data(macd_data):
