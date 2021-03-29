@@ -2,19 +2,19 @@ def get_status(macd_one, stoch_one, stoch_two, stoch_diff):
     status = ''
 
     if stoch_one >= 80 and stoch_two >= 80 and macd_one < 0:
-        status = 'Buy - Overbought'
+        status = 'Buy - Stoch - Overbought'
     elif stoch_one <= 20 and stoch_two <= 20 and macd_one < 0:
-        status = 'Sell - Oversold'
+        status = 'Sell - Stoch -Oversold'
 
     elif stoch_one >= 80 and stoch_two < 80 and macd_one < 0:
-        status = 'Buy - Upper'
+        status = 'Buy - Stoch - Upper'
     elif stoch_one <= 20 and stoch_two > 20 and macd_one < 0:
-        status = 'Sell - Lower'
+        status = 'Sell - Stoch -Lower'
 
     elif stoch_one >= 75 and stoch_diff > 0 and macd_one < 0:
-        status = 'Buy - Critical'
+        status = 'Buy - Stoch - Critical'
     elif stoch_one <= 25 and stoch_diff < 0 and macd_one < 0:
-        status = 'Sell - Critical'
+        status = 'Sell - Stoch -Critical'
 
     elif macd_one > 0:
         status = 'Buy - Hold'
