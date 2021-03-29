@@ -16,6 +16,11 @@ def get_status(macd_one, macd_two, stoch_one, stoch_two, stoch_diff):
     elif stoch_one <= 25 and stoch_diff < 0 and macd_one < 0:
         status = 'Sell - Stoch - Critical'
 
+    elif macd_one > 0 and macd_two < 0:
+        status = 'Buy - Macd - crossover'
+    elif macd_one < 0 and macd_two > 0:
+        status = 'Sell - Macd - crossover'
+
     elif macd_one > 0:
         status = 'Buy - Macd - Hold'
     elif macd_one < 0:
