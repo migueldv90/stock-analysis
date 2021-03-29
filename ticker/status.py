@@ -16,9 +16,9 @@ def get_status(macd_one, stoch_one, stoch_two, stoch_diff):
     elif stoch_one <= 25 and stoch_diff < 0:
         status = 'Sell - Critical'
 
-    elif stoch_diff > 0:
-        status = 'Buy - Normal'
-    elif stoch_diff < 0:
-        status = 'Sell - Normal'
+    elif macd_one > 0:
+        status = 'Buy - Hold'
+    elif macd_one < 0:
+        status = 'Sell - Hold'
 
     return status
