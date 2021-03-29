@@ -27,11 +27,9 @@ def analysis(ticker, time_period, time_interval, file):
     stoch_stoch_data = get_stoch_stoch_data(data)
     stoch_one = get_stoch_index(stoch_stoch_data, 1)
     stoch_two = get_stoch_index(stoch_stoch_data, 2)
-    stoch_three = get_stoch_index(stoch_stoch_data, 3)
-    stoch_diff_one = get_stoch_diff(stoch_one, stoch_two)
-    stoch_diff_two = get_stoch_diff(stoch_two, stoch_three)
+    stoch_diff = get_stoch_diff(stoch_one, stoch_two)
 
-    status = get_status(stoch_one, stoch_two, stoch_three, stoch_diff_one, stoch_diff_two)
+    status = get_status(stoch_one, stoch_two, stoch_diff)
 
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_interval + ' - ' + status, file=file)
@@ -63,13 +61,7 @@ def analysis(ticker, time_period, time_interval, file):
     print('Stoch Two:', file=file)
     print(stoch_two, file=file)
 
-    print('Stoch Three:', file=file)
-    print(stoch_three, file=file)
-
-    print('Stoch Diff One:', file=file)
-    print(stoch_diff_one, file=file)
-
-    print('Stoch Diff Two:', file=file)
-    print(stoch_diff_two, file=file)
+    print('Stoch Diff:', file=file)
+    print(stoch_diff, file=file)
 
     print('', file=file)
