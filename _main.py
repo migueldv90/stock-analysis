@@ -8,7 +8,7 @@ from lists.webull import tickers as webull
 
 
 def get_analysis(list, name, time_period, time_interval):
-    file = open('_' + name + '-' + time_interval + '.txt', 'w')
+    file = open('output/' + name + '-' + time_interval + '.txt', 'w')
     for ticker in list:
         analysis(ticker, time_period, time_interval, file)
     file.close()
