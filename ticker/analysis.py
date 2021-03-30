@@ -1,8 +1,8 @@
 import yfinance
 from .status import get_status
-from .stoch import get_stoch_stoch_data, get_stoch_index, get_stoch_diff
+from .macd import get_macd_data, get_macd_index, get_macd_diff
 from .sma import get_sma_20_data, get_sma_20_index, get_sma_20_diff
-from .macd import get_macd_data, get_macd_index, get_macd_diff, get_macd_direction, get_signal_data, get_signal_index, get_signal_diff
+from .stoch import get_stoch_stoch_data, get_stoch_index, get_stoch_diff
 
 
 def analysis(ticker, time_period, time_interval, file):
