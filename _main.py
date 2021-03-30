@@ -2,10 +2,10 @@ import datetime
 from ticker.analysis import analysis
 
 
-from lists.webull import tickers as wb
-from lists.crypto import tickers as cp
 from lists.etfs import tickers as etfs
-from lists.watchlist import tickers as wl
+from lists.crypto import tickers as crypto
+from lists.stocks import tickers as stocks
+from lists.webull import tickers as webull
 
 
 def stocks(time_period, time_interval):
@@ -36,8 +36,8 @@ time_period_200d = '200d'
 time_interval_1d = '1d'
 
 
-analysis_tickers = wb
-scan_tickers = wl + cp + etfs
+analysis_tickers = webull
+scan_tickers = stocks + crypto + etfs
 
 
 main(time_period_30d, time_interval_30m)
