@@ -19,6 +19,18 @@ time_interval = '30m'
 
 lists = [
     {
+        'list': etfs,
+        'name': 'etfs',
+    },
+    {
+        'list': crypto,
+        'name': 'crypto',
+    },
+    {
+        'list': stocks,
+        'name': 'stocks',
+    },
+    {
         'list': webull,
         'name': 'webull',
     },
