@@ -38,3 +38,25 @@ lists = [
 
 for list in lists:
     get_analysis(list['list'], list['name'], time_period, time_interval)
+
+
+time_period = '50d'
+time_interval = '30m'
+
+lists = [
+    {
+        'list': etfs,
+        'name': 'etfs',
+    },
+    {
+        'list': stocks,
+        'name': 'stocks',
+    },
+    {
+        'list': webull,
+        'name': 'webull',
+    },
+]
+
+for list in lists:
+    get_analysis(list['list'], list['name'], time_period, time_interval)
