@@ -21,6 +21,21 @@ def get_status(macd_one, macd_two, stoch_one, stoch_two, stoch_diff):
     elif macd_one < 0 and macd_two > 0:
         status = 'Sell - Macd - Crossover'
 
+    if stoch_one >= 80 and stoch_two >= 80 and macd_one > 0:
+        status = 'Buy - Macd - Overbought'
+    elif stoch_one <= 20 and stoch_two <= 20 and macd_one > 0:
+        status = 'Sell - Macd - Oversold'
+
+    elif stoch_one >= 80 and stoch_two < 80 and macd_one > 0:
+        status = 'Buy - Macd - Crossover'
+    elif stoch_one <= 20 and stoch_two > 20 and macd_one > 0:
+        status = 'Sell - Macd - Crossover'
+
+    elif stoch_one >= 75 and stoch_diff > 0 and macd_one > 0:
+        status = 'Buy - Macd - Critical'
+    elif stoch_one <= 25 and stoch_diff < 0 and macd_one > 0:
+        status = 'Sell - Macd - Critical'
+
     elif macd_one > 0:
         status = 'Buy - Macd - Hold'
     elif macd_one < 0:
