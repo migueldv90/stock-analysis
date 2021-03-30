@@ -19,6 +19,10 @@ times = [
         'time_period': '200d',
         'time_interval': '1d',
     },
+    {
+        'time_period': '50d',
+        'time_interval': '30m',
+    },
 ]
 
 
