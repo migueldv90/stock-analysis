@@ -17,7 +17,7 @@ def get_analysis(list, name, time_period, time_interval):
 times = [
     {
         'time_period': '200d',
-        'time_interval': '1d'
+        'time_interval': '1d',
     },
 ]
 
