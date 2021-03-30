@@ -14,8 +14,8 @@ def get_analysis(list, name, time_period, time_interval):
     file.close()
 
 
-time_period = '30d'
-time_interval = '30m'
+time_period = '200d'
+time_interval = '1d'
 
 lists = [
     {
