@@ -19,11 +19,6 @@ def analysis(ticker, time_period, time_interval, file):
     macd_diff = get_macd_diff(macd_one, macd_two)
     macd_direction = get_macd_direction(macd_diff)
 
-    signal_data = get_signal_data(macd_data)
-    signal_one = get_signal_index(signal_data, 1)
-    signal_two = get_signal_index(signal_data, 2)
-    signal_diff = get_signal_diff(signal_one, signal_two)
-
     stoch_stoch_data = get_stoch_stoch_data(data)
     stoch_one = get_stoch_index(stoch_stoch_data, 1)
     stoch_two = get_stoch_index(stoch_stoch_data, 2)
@@ -48,12 +43,6 @@ def analysis(ticker, time_period, time_interval, file):
 
     print('Macd Diff:', file=file)
     print(macd_diff, file=file)
-
-    print('Signal:', file=file)
-    print(signal_one, file=file)
-
-    print('Signal Diff:', file=file)
-    print(signal_diff, file=file)
 
     print('Stoch One:', file=file)
     print(stoch_one, file=file)
