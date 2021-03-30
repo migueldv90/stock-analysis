@@ -60,3 +60,14 @@ lists = [
 
 for list in lists:
     get_analysis(list['list'], list['name'], time_period, time_interval)
+
+
+time_period = '100d'
+time_interval = '1h'
+
+lists = [
+    {
+        'list': crypto,
+        'name': 'crypto',
+    },
+]
