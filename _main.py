@@ -14,8 +14,13 @@ def get_analysis(list, name, time_period, time_interval):
     file.close()
 
 
-time_period = '200d'
-time_interval = '1d'
+times = [
+    {
+        'time_period': '200d',
+        'time_interval': '1d'
+    },
+]
+
 
 lists = [
     {
@@ -36,38 +41,7 @@ lists = [
     },
 ]
 
-for list in lists:
-    get_analysis(list['list'], list['name'], time_period, time_interval)
 
-
-time_period = '50d'
-time_interval = '30m'
-
-lists = [
-    {
-        'list': etfs,
-        'name': 'etfs',
-    },
-    {
-        'list': stocks,
-        'name': 'stocks',
-    },
-    {
-        'list': webull,
-        'name': 'webull',
-    },
-]
-
-for list in lists:
-    get_analysis(list['list'], list['name'], time_period, time_interval)
-
-
-time_period = '100d'
-time_interval = '1h'
-
-lists = [
-    {
-        'list': crypto,
-        'name': 'crypto',
-    },
-]
+for time in times:
+    for list in lists:
+        get_analysis(list['list'], list['name'], time['time_period'], time['time_interval'])
