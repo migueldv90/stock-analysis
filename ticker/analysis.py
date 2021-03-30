@@ -17,7 +17,6 @@ def analysis(ticker, time_period, time_interval, file):
     macd_one = get_macd_index(macd_data, 1)
     macd_two = get_macd_index(macd_data, 2)
     macd_diff = get_macd_diff(macd_one, macd_two)
-    macd_direction = get_macd_direction(macd_diff)
 
     stoch_stoch_data = get_stoch_stoch_data(data)
     stoch_one = get_stoch_index(stoch_stoch_data, 1)
@@ -38,7 +37,7 @@ def analysis(ticker, time_period, time_interval, file):
     print('SMA 20 Diff:', file=file)
     print(sma_20_diff, file=file)
 
-    print('Macd:' + macd_direction, file=file)
+    print('Macd:', file=file)
     print(macd_one, file=file)
 
     print('Macd Diff:', file=file)
