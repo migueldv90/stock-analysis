@@ -1,4 +1,3 @@
-import datetime
 from ticker.analysis import analysis
 
 
@@ -8,37 +7,22 @@ from lists.stocks import tickers as stocks
 from lists.webull import tickers as webull
 
 
-def stocks(time_period, time_interval):
-    file = open('_stocks-' + time_interval + '.txt', 'w')
-    for ticker in analysis_tickers:
+def get_analysis(list, name, time_period, time_interval):
+    file = open('_' + name + '-' + time_interval + '.txt', 'w')
+    for ticker in list:
         analysis(ticker, time_period, time_interval, file)
     file.close()
 
 
-def scan(time_period, time_interval):
-    file = open('_scan-' + time_interval + '.txt', 'w')
-    for ticker in scan_tickers:
-        analysis(ticker, time_period, time_interval, file)
-    file.close()
+time_period = '30d'
+time_interval = '30m'
 
+lists = [
+    {
+        'list': webull,
+        'name': 'webull',
+    },
+]
 
-def main(time_period, time_interval):
-    stocks(time_period, time_interval)
-    scan(time_period, time_interval)
-    print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
-
-
-time_period_30d = '30d'
-time_interval_30m = '30m'
-
-
-time_period_200d = '200d'
-time_interval_1d = '1d'
-
-
-analysis_tickers = webull
-scan_tickers = stocks + crypto + etfs
-
-
-main(time_period_30d, time_interval_30m)
-main(time_period_200d, time_interval_1d)
+for list in lists:
+    get_analysis(list['list'], list['name'], time_period, time_interval)
