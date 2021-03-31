@@ -1,3 +1,5 @@
+import datetime
+import threading
 from analysis.analysis import analysis
 
 
@@ -46,6 +48,12 @@ lists = [
 ]
 
 
-for time in times:
-    for list in lists:
-        get_analysis(list['list'], list['name'], time['time_period'], time['time_interval'])
+def main():
+    for time in times:
+        for list in lists:
+            get_analysis(list['list'], list['name'], time['time_period'], time['time_interval'])
+    print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
+    threading.Timer(20, main).start()
+
+
+main()
