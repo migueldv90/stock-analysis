@@ -9,13 +9,6 @@ from lists.stocks import tickers as stocks
 from lists.webull import tickers as webull
 
 
-def get_analysis(list, name, time_period, time_interval):
-    file = open('output/' + name + '-' + time_interval + '.txt', 'w')
-    for ticker in list:
-        analysis(ticker, time_period, time_interval, file)
-    file.close()
-
-
 times = [
     {
         'time_period': '200d',
@@ -51,7 +44,10 @@ lists = [
 def main():
     for time in times:
         for list in lists:
-            get_analysis(list['list'], list['name'], time['time_period'], time['time_interval'])
+            file = open('output/' + list['name'] + '-' + time['time_interval'] + '.txt', 'w')
+            for ticker in list['list']:
+                analysis(ticker, time['time_period'], time['time_interval'], file)
+            file.close()
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
     threading.Timer(20, main).start()
 
