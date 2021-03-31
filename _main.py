@@ -1,4 +1,4 @@
-from ticker.analysis import analysis
+from analysis.analysis import analysis
 
 
 from lists.etfs import tickers as etfs
