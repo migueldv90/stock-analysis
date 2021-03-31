@@ -17,8 +17,8 @@ def get_status(macd_one, macd_two, signal_diff, stoch_one, stoch_two, stoch_diff
         status = 'Stoch - Sell - Critical'
 
     elif signal_diff > 0:
-        status = 'Buy - Signal - Hold'
+        status = 'Signal - Buy - Hold'
     elif signal_diff < 0:
-        status = 'Sell - Signal - Hold'
+        status = 'Signal - Sell - Hold'
 
     return status
