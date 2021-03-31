@@ -50,6 +50,10 @@ def main():
             file.close()
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
     threading.Timer(900, main).start()
+    print('Buy - Crossover')
+    print('Buy - Overbought')
+    print('Buy - Critical')
+    print('Buy - Hold')
 
 
 main()
