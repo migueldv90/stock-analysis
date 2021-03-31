@@ -48,6 +48,12 @@ def analysis(ticker, time_period, time_interval, file):
     print('macd_diff', file=file)
     print(macd_diff, file=file)
 
+    print('signal_one', file=file)
+    print(signal_one, file=file)
+
+    print('signal_diff', file=file)
+    print(signal_diff, file=file)
+
     print('stoch_one', file=file)
     print(stoch_one, file=file)
 
