@@ -49,7 +49,7 @@ def main():
                 analysis(ticker, time['time_period'], time['time_interval'], file)
             file.close()
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
-    threading.Timer(20, main).start()
+    threading.Timer(900, main).start()
 
 
 main()
