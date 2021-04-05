@@ -45,15 +45,22 @@ def main():
     for time in times:
         for list in lists:
             file = open('output/' + list['name'] + '-' + time['time_interval'] + '.txt', 'w')
+
+            print('Macd - Buy - Crossover', file=file)
+            print('Macd - Sell - Crossover', file=file)
+            print('', file=file)
+
+            print('Upper -', file=file)
+            print('Lower -', file=file)
+            print('Buy -', file=file)
+            print('Sell -', file=file)
+            print('', file=file)
+
             for ticker in list['list']:
                 analysis(ticker, time['time_period'], time['time_interval'], file)
             file.close()
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
     threading.Timer(900, main).start()
-    print('Buy - Crossover')
-    print('Buy - Overbought')
-    print('Buy - Critical')
-    print('Buy - Hold')
 
 
 main()
