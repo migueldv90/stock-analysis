@@ -47,9 +47,10 @@ def main():
             file = open('output/' + list['name'] + '-' + time['time_interval'] + '.txt', 'w')
 
             print('Macd - Buy - Crossover', file=file)
-            print('Macd - Sell - Crossover', file=file)
+            print('Upper - Buy - Critical', file=file)
             print('', file=file)
 
+            print('Macd -', file=file)
             print('Upper -', file=file)
             print('Lower -', file=file)
             print('Buy -', file=file)
