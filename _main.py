@@ -11,12 +11,8 @@ from lists.webull import tickers as webull
 
 times = [
     {
-        'time_period': '200d',
-        'time_interval': '1d',
-    },
-    {
-        'time_period': '50d',
-        'time_interval': '30m',
+        'time_period': '30d',
+        'time_interval': '15m',
     },
 ]
 
