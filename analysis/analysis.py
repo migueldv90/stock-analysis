@@ -28,7 +28,7 @@ def analysis(ticker, time_period, time_interval, file):
     stoch_two = get_stoch_index(stoch_stoch_data, 2)
     stoch_diff = get_stoch_diff(stoch_one, stoch_two)
 
-    status = get_status(macd_one, macd_two)
+    status = get_status(macd_one, macd_two, signal_one, signal_two)
 
     print('Ticker:', file=file)
     print(ticker + ' - ' + time_interval + ' - ' + status, file=file)
