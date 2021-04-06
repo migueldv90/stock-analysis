@@ -41,18 +41,6 @@ def main():
     for time in times:
         for list in lists:
             file = open('output/' + list['name'] + '-' + time['time_interval'] + '.txt', 'w')
-
-            print('Macd - Buy - Crossover', file=file)
-            print('Upper - Buy - Critical', file=file)
-            print('', file=file)
-
-            print('Macd -', file=file)
-            print('Upper -', file=file)
-            print('Lower -', file=file)
-            print('Buy -', file=file)
-            print('Sell -', file=file)
-            print('', file=file)
-
             for ticker in list['list']:
                 analysis(ticker, time['time_period'], time['time_interval'], file)
             file.close()
