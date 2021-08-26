@@ -1,5 +1,5 @@
 # Stock Analysis
-*   Python 3.9.2
+*   Python 3.9.6
 
 ## Install Dependencies - System
 
@@ -42,6 +42,8 @@ virtualenv & virtualenvwrapper
 ## PIP
 
 **commands**
+
+    pip install --upgrade pip
 
     pip install -r requirements.txt
     pip uninstall -r requirements.txt
