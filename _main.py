@@ -1,5 +1,4 @@
 import datetime
-import threading
 from analysis.analysis import analysis
 
 
@@ -44,11 +43,6 @@ def main():
                 analysis(ticker, time['time_period'], time['time_interval'], file)
             file.close()
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
-    threading.Timer(900, main).start()
-    print('Buy - Crossover')
-    print('Buy - Overbought')
-    print('Buy - Critical')
-    print('Buy - Hold')
 
 
 main()
