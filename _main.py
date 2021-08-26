@@ -6,7 +6,6 @@ from analysis.analysis import analysis
 from lists.etfs import tickers as etfs
 from lists.crypto import tickers as crypto
 from lists.stocks import tickers as stocks
-from lists.webull import tickers as webull
 
 
 times = [
@@ -33,10 +32,6 @@ lists = [
     {
         'list': stocks,
         'name': 'stocks',
-    },
-    {
-        'list': webull,
-        'name': 'webull',
     },
 ]
 
