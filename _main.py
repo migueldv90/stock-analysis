@@ -11,7 +11,11 @@ from lists.webull import tickers as webull
 
 times = [
     {
-        'time_period': '30d',
+        'time_period': '200d',
+        'time_interval': '1d',
+    },
+    {
+        'time_period': '50d',
         'time_interval': '30m',
     },
 ]
@@ -46,6 +50,10 @@ def main():
             file.close()
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
     threading.Timer(900, main).start()
+    print('Buy - Crossover')
+    print('Buy - Overbought')
+    print('Buy - Critical')
+    print('Buy - Hold')
 
 
 main()
