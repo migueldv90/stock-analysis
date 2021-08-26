@@ -1,0 +1,4 @@
+tickers = [
+    'aapl',
+    'tsla',
+]

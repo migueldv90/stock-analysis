@@ -1,41 +1,48 @@
 import datetime
-import threading
-from ticker.analysis import analysis
+from analysis.analysis import analysis
 
 
-from lists.webull import tickers as wb
-from lists.crypto import tickers as cp
 from lists.etfs import tickers as etfs
-from lists.watchlist import tickers as wl
+from lists.crypto import tickers as crypto
+from lists.stocks import tickers as stocks
 
 
-def stocks():
-    file = open('_stocks.txt', 'w')
-    for ticker in analysis_tickers:
-        analysis(ticker, time_period, time_interval, file)
-    file.close()
+times = [
+    {
+        'time_period': '200d',
+        'time_interval': '1d',
+    },
+    {
+        'time_period': '50d',
+        'time_interval': '30m',
+    },
+]
 
 
-def scan():
-    file = open('_scan.txt', 'w')
-    for ticker in scan_tickers:
-        analysis(ticker, time_period, time_interval, file)
-    file.close()
+lists = [
+    {
+        'list': etfs,
+        'name': 'etfs',
+    },
+    {
+        'list': crypto,
+        'name': 'crypto',
+    },
+    {
+        'list': stocks,
+        'name': 'stocks',
+    },
+]
 
 
 def main():
-    stocks()
-    scan()
+    for time in times:
+        for list in lists:
+            file = open('output/' + list['name'] + '-' + time['time_interval'] + '.txt', 'w')
+            for ticker in list['list']:
+                analysis(ticker, time['time_period'], time['time_interval'], file)
+            file.close()
     print(datetime.datetime.now().strftime('%m/%d/%y - %H:%M'))
-    threading.Timer(1800, main).start()
-
-
-time_period = '200d'
-time_interval = '1h'
-
-
-analysis_tickers = wb
-scan_tickers = wl + cp + etfs
 
 
 main()
