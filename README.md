@@ -1,6 +1,5 @@
 # Stock Analysis
-
-- Python 3.9.6.8
+*   Python 3.9.6
 
 ## Install Dependencies - System
 
